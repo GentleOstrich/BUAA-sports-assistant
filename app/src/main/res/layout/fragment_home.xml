@@ -6,17 +6,127 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            tools:ignore="MissingConstraints">
+
+            <ImageButton
+                android:src="@drawable/ic_manpao"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                tools:ignore="MissingConstraints" />
+
+            <ImageButton
+                android:src="@drawable/ic_lanqiu"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                tools:ignore="MissingConstraints" />
+
+            <ImageButton
+                android:src="@drawable/ic_zuqiu"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                tools:ignore="MissingConstraints" />
+
+            <ImageButton
+                android:src="@drawable/ic_paiqiu"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                tools:ignore="MissingConstraints" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            tools:ignore="MissingConstraints"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:src="@drawable/ic_yumaoqiu"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                tools:ignore="MissingConstraints" />
+
+            <ImageButton
+                android:src="@drawable/ic_youyong"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                tools:ignore="MissingConstraints" />
+
+            <ImageButton
+                android:src="@drawable/ic_jianshen"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                tools:ignore="MissingConstraints" />
+
+            <ImageButton
+                android:src="@drawable/ic_taiqiu"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                tools:ignore="MissingConstraints" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <ImageButton
+                android:src="@drawable/ic_wangqiu"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                tools:ignore="MissingConstraints" />
+
+            <ImageButton
+                android:src="@drawable/ic_feipan"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:hint="TD"
+                android:background="#D6D6D7"
+                android:textSize="40sp"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:layout_gravity="center"
+                tools:ignore="MissingConstraints"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="5dp"/>
+
+            <Button
+                android:hint="···"
+                android:background="#D6D6D7"
+                android:textSize="40sp"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:layout_gravity="center"
+                tools:ignore="MissingConstraints" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,8 +24,8 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        //final TextView textView = binding.textHome;  // 文本的样子 指向fragment_home.xml
+        //homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
