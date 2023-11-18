@@ -21,6 +21,7 @@
             tools:ignore="MissingConstraints">
 
             <ImageButton
+                android:id="@+id/btn_run"
                 android:src="@drawable/ic_manpao"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -28,6 +29,7 @@
                 tools:ignore="MissingConstraints" />
 
             <ImageButton
+                android:id="@+id/btn_basketball"
                 android:src="@drawable/ic_lanqiu"
                 android:layout_width="100dp"
                 android:layout_height="100dp"

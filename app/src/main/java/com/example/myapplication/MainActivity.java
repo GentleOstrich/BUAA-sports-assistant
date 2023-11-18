@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -12,7 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ActivityMainBinding binding;
 
@@ -32,6 +34,23 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        findViewById(R.id.btn_run).setOnClickListener(this);
+        findViewById(R.id.btn_basketball).setOnClickListener(this);
+
+
     }
 
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(this, RunActivity.class);
+        if (view.getId() == R.id.btn_run) {
+            intent.putExtra("run", 0);
+
+        } else if (view.getId() == R.id.btn_basketball) {
+            intent.putExtra("basketball", 0);
+        }
+        startActivity(intent);
+    }
 }
