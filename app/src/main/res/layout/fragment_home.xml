@@ -7,138 +7,124 @@
     tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="MissingConstraints"
-        android:orientation="vertical"
-        >
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        tools:ignore="MissingConstraints">
 
-        <LinearLayout
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp"
-            tools:ignore="MissingConstraints">
-
-            <ImageButton
-                android:id="@+id/btn_run"
-                android:src="@drawable/ic_manpao"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                tools:ignore="MissingConstraints"
-                android:contentDescription="manpao" />
-
-            <ImageButton
-                android:id="@+id/btn_basketball"
-                android:src="@drawable/ic_lanqiu"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                tools:ignore="MissingConstraints"
-                android:contentDescription="lanqiu" />
-
-            <ImageButton
-                android:src="@drawable/ic_zuqiu"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                tools:ignore="MissingConstraints"
-                android:contentDescription="zuqiu" />
-
-            <ImageButton
-                android:src="@drawable/ic_paiqiu"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                tools:ignore="MissingConstraints"
-                android:contentDescription="paiqiu" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            tools:ignore="MissingConstraints"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:src="@drawable/ic_yumaoqiu"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                tools:ignore="MissingConstraints"
-                android:contentDescription="yumaoqiu" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <ImageButton
-                android:src="@drawable/ic_youyong"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                tools:ignore="MissingConstraints"
-                android:contentDescription="youyong" />
+                <ImageButton
+                    android:id="@+id/btn_run"
+                    android:src="@drawable/ic_manpao"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    tools:ignore="MissingConstraints"
+                    android:contentDescription="manpao" />
 
-            <ImageButton
-                android:src="@drawable/ic_jianshen"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                tools:ignore="MissingConstraints"
-                android:contentDescription="jianshen" />
+                <ImageButton
+                    android:id="@+id/btn_basketball"
+                    android:src="@drawable/ic_lanqiu"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    tools:ignore="MissingConstraints"
+                    android:contentDescription="lanqiu" />
 
-            <ImageButton
-                android:src="@drawable/ic_taiqiu"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                tools:ignore="MissingConstraints"
-                android:contentDescription="taiqiu" />
+                <ImageButton
+                    android:src="@drawable/ic_zuqiu"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    tools:ignore="MissingConstraints"
+                    android:contentDescription="zuqiu" />
 
-        </LinearLayout>
+                <ImageButton
+                    android:src="@drawable/ic_paiqiu"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    tools:ignore="MissingConstraints"
+                    android:contentDescription="paiqiu" />
+                <ImageButton
+                    android:src="@drawable/ic_yumaoqiu"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    tools:ignore="MissingConstraints"
+                    android:contentDescription="yumaoqiu" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp">
+                <ImageButton
+                    android:src="@drawable/ic_youyong"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    tools:ignore="MissingConstraints"
+                    android:contentDescription="youyong" />
 
-            <ImageButton
-                android:src="@drawable/ic_wangqiu"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                tools:ignore="MissingConstraints"
-                android:contentDescription="wangqiu" />
+                <ImageButton
+                    android:src="@drawable/ic_jianshen"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    tools:ignore="MissingConstraints"
+                    android:contentDescription="jianshen" />
 
-            <ImageButton
-                android:src="@drawable/ic_feipan"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                tools:ignore="MissingConstraints"
-                android:contentDescription="feipan" />
+                <ImageButton
+                    android:src="@drawable/ic_taiqiu"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    tools:ignore="MissingConstraints"
+                    android:contentDescription="taiqiu" />
 
-            <Button
-                android:hint="TD"
-                android:background="#D6D6D7"
-                android:textSize="40sp"
-                android:layout_width="88dp"
-                android:layout_height="88dp"
-                android:layout_gravity="center"
-                tools:ignore="MissingConstraints"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="5dp"/>
+                <ImageButton
+                    android:src="@drawable/ic_wangqiu"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    tools:ignore="MissingConstraints"
+                    android:contentDescription="wangqiu" />
 
-            <Button
-                android:hint="···"
-                android:background="#D6D6D7"
-                android:textSize="40sp"
-                android:layout_width="88dp"
-                android:layout_height="88dp"
-                android:layout_gravity="center"
-                tools:ignore="MissingConstraints" />
+                <ImageButton
+                    android:src="@drawable/ic_feipan"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    tools:ignore="MissingConstraints"
+                    android:contentDescription="feipan" />
 
+                <Button
+                    android:hint="TD"
+                    android:background="#D6D6D7"
+                    android:textSize="40sp"
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:layout_gravity="center"
+                    tools:ignore="MissingConstraints"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"/>
 
-        </LinearLayout>
+                <Button
+                    android:hint="···"
+                    android:background="#D6D6D7"
+                    android:textSize="40sp"
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:layout_gravity="center"
+                    tools:ignore="MissingConstraints" />
+            </LinearLayout>
+        </HorizontalScrollView>
 
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
