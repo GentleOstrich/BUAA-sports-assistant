@@ -1,9 +1,11 @@
 package com.example.myapplication;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,7 +16,9 @@ public class RunActivity extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         setContentView(R.layout.activity_sport);
-        findViewById(R.id.btn_run_return_home).setOnClickListener(this);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_back); //修改actionbar左上角返回按钮的图标
         TextView textView = findViewById(R.id.text_sport);
         if (intent.getIntExtra("run", -1) == 0) {
             textView.setText("run");
@@ -24,11 +28,19 @@ public class RunActivity extends AppCompatActivity implements View.OnClickListen
     }
 
     @Override
-    public void onClick(View view) {
-        if(view.getId() == R.id.btn_run_return_home){
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:   //返回键的id
+                this.finish();
+                return false;
+            default:
+                return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 
 
