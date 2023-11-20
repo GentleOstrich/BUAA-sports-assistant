@@ -40,6 +40,7 @@
                     android:contentDescription="lanqiu" />
 
                 <ImageButton
+                    android:id="@+id/btn_football"
                     android:src="@drawable/ic_zuqiu"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -48,6 +49,7 @@
                     android:contentDescription="zuqiu" />
 
                 <ImageButton
+                    android:id="@+id/btn_volleyball"
                     android:src="@drawable/ic_paiqiu"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -55,6 +57,7 @@
                     tools:ignore="MissingConstraints"
                     android:contentDescription="paiqiu" />
                 <ImageButton
+                    android:id="@+id/btn_badminton"
                     android:src="@drawable/ic_yumaoqiu"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -63,6 +66,7 @@
                     android:contentDescription="yumaoqiu" />
 
                 <ImageButton
+                    android:id="@+id/btn_swim"
                     android:src="@drawable/ic_youyong"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -71,6 +75,7 @@
                     android:contentDescription="youyong" />
 
                 <ImageButton
+                    android:id="@+id/btn_gym"
                     android:src="@drawable/ic_jianshen"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -79,6 +84,7 @@
                     android:contentDescription="jianshen" />
 
                 <ImageButton
+                    android:id="@+id/btn_tabletennis"
                     android:src="@drawable/ic_taiqiu"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -87,6 +93,7 @@
                     android:contentDescription="taiqiu" />
 
                 <ImageButton
+                    android:id="@+id/btn_tennis"
                     android:src="@drawable/ic_wangqiu"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -95,6 +102,7 @@
                     android:contentDescription="wangqiu" />
 
                 <ImageButton
+                    android:id="@+id/btn_frisbee"
                     android:src="@drawable/ic_feipan"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -103,6 +111,7 @@
                     android:contentDescription="feipan" />
 
                 <Button
+                    android:id="@+id/btn_td"
                     android:hint="TD"
                     android:background="#D6D6D7"
                     android:textSize="40sp"
@@ -114,6 +123,7 @@
                     android:layout_marginLeft="5dp"/>
 
                 <Button
+                    android:id="@+id/btn_more"
                     android:hint="···"
                     android:background="#D6D6D7"
                     android:textSize="40sp"

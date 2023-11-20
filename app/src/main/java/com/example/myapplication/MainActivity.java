@@ -37,19 +37,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.btn_run).setOnClickListener(this);
         findViewById(R.id.btn_basketball).setOnClickListener(this);
-
+        findViewById(R.id.btn_football).setOnClickListener(this);
+        findViewById(R.id.btn_volleyball).setOnClickListener(this);
+        findViewById(R.id.btn_badminton).setOnClickListener(this);
+        findViewById(R.id.btn_swim).setOnClickListener(this);
+        findViewById(R.id.btn_gym).setOnClickListener(this);
+        findViewById(R.id.btn_tabletennis).setOnClickListener(this);
+        findViewById(R.id.btn_tennis).setOnClickListener(this);
+        findViewById(R.id.btn_frisbee).setOnClickListener(this);
+        findViewById(R.id.btn_td).setOnClickListener(this);
+        findViewById(R.id.btn_more).setOnClickListener(this);
 
     }
 
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this, RunActivity.class);
+        Intent intent = new Intent(this, SportActivity.class);
         if (view.getId() == R.id.btn_run) {
             intent.putExtra("run", 0);
 
         } else if (view.getId() == R.id.btn_basketball) {
             intent.putExtra("basketball", 0);
+        } else if (view.getId() == R.id.btn_football) {
+            intent.putExtra("football",0);
+        } else if (view.getId() == R.id.btn_volleyball) {
+            intent.putExtra("volleyball",0);
+        } else if (view.getId() == R.id.btn_badminton) {
+            intent.putExtra("badminton",0);
+        } else if (view.getId() == R.id.btn_swim) {
+            intent.putExtra("swim",0);
+        } else if (view.getId() == R.id.btn_gym) {
+            intent.putExtra("gym",0);
+        } else if (view.getId() == R.id.btn_tabletennis) {
+            intent.putExtra("tabletennis",0);
+        } else if (view.getId() == R.id.btn_tennis) {
+            intent.putExtra("tennis",0);
+        } else if (view.getId() == R.id.btn_frisbee) {
+            intent.putExtra("frisbee",0);
+        } else if (view.getId() == R.id.btn_td) {
+            intent.putExtra("td",0);
+        } else if (view.getId() == R.id.btn_more) {
+            intent.putExtra("more",0);
         }
         startActivity(intent);
     }
