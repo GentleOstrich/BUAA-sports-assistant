@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.myapplication.ui.sport.RunActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,8 +56,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         Intent intent = new Intent(this, SportActivity.class);
         if (view.getId() == R.id.btn_run) {
+            intent = new Intent(this, RunActivity.class);
             intent.putExtra("run", 0);
-
         } else if (view.getId() == R.id.btn_basketball) {
             intent.putExtra("basketball", 0);
         } else if (view.getId() == R.id.btn_football) {
