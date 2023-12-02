@@ -26,10 +26,10 @@
             android:name=".LoginSQLiteActivity"
             android:exported="false"
             android:label="Login"/>
-<!--        <activity-->
-<!--            android:name=".ui.sport.SportActivity"-->
-<!--            android:exported="false"-->
-<!--            android:label="Run" />-->
+        <activity
+            android:name=".ui.sport.RunActivity"
+            android:exported="false"
+            android:label="Run" />
         <activity
             android:name=".ui.sport.FrisbeeActivity"
             android:exported="false"
