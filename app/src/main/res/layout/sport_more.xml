@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:text="运动："
+        android:textColor="@color/gray"
+        android:textSize="20sp"></TextView>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_marginBottom="50sp"
+        android:background="@drawable/round_corners_bg"
+        android:hint="请输入您做的运动："
+        android:inputType="text"
+        android:textColorHint="#95A1AA"></EditText>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:text="消耗卡路里(cal)："
+        android:textColor="@color/gray"
+        android:textSize="20sp"></TextView>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_marginBottom="50sp"
+        android:background="@drawable/round_corners_bg"
+        android:hint="请输入消耗卡路里："
+        android:inputType="number"
+        android:textColorHint="#95A1AA"></EditText>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:text="运动时间"
+        android:textColor="@color/gray"
+        android:textSize="20sp"></TextView>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_marginBottom="50sp"
+        android:background="@drawable/round_corners_bg"
+        android:hint="请输入运动时间"
+        android:inputType="time"
+        android:textColorHint="#95A1AA"></EditText>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="35sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="90sp"
+        android:background="@drawable/round_corners_bg"
+        android:text="提交"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textColorHighlight="@color/gray"
+        android:textSize="17sp" /> <!-- 按钮后续可以加圆角样式 -->
+
+</LinearLayout>

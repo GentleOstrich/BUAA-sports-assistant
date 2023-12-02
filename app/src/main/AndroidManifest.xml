@@ -13,21 +13,6 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".ui.sport.GymActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.sport.SwimActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.sport.BadmintonActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.sport.VolleyballActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.sport.FootballActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
@@ -38,17 +23,53 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.sport.SportActivity"
-            android:exported="false"
-            android:label="Sport" />
-        <activity
             android:name=".ui.sport.RunActivity"
             android:exported="false"
             android:label="Run" />
         <activity
+            android:name=".ui.sport.FrisbeeActivity"
+            android:exported="false"
+            android:label="Frisbee" />
+        <activity
+            android:name=".ui.sport.MoreActivity"
+            android:exported="false"
+            android:label="More" />
+        <activity
+            android:name=".ui.sport.TableTennisAvtivity"
+            android:exported="false"
+            android:label="TableTennis" />
+        <activity
+            android:name=".ui.sport.TdActivity"
+            android:exported="false"
+            android:label="Td" />
+        <activity
+            android:name=".ui.sport.TennisActivity"
+            android:exported="false"
+            android:label="Tennis" />
+        <activity
             android:name=".ui.sport.BasketballActivity"
             android:exported="false"
             android:label="Basketball" />
+        <activity
+            android:name=".ui.sport.GymActivity"
+            android:exported="false"
+            android:label="Fitness"/>
+        <activity
+            android:name=".ui.sport.SwimActivity"
+            android:exported="false"
+            android:label="Swim"/>
+        <activity
+            android:name=".ui.sport.BadmintonActivity"
+            android:exported="false"
+            android:label="Badminton"/>
+        <activity
+            android:name=".ui.sport.VolleyballActivity"
+            android:exported="false"
+            android:label="Volleyball"/>
+        <activity
+            android:name=".ui.sport.FootballActivity"
+            android:exported="false"
+            android:label="Football"/>
     </application>
 
 </manifest>

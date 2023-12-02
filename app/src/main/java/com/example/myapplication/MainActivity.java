@@ -7,10 +7,14 @@ import android.view.View;
 import com.example.myapplication.ui.sport.BadmintonActivity;
 import com.example.myapplication.ui.sport.BasketballActivity;
 import com.example.myapplication.ui.sport.FootballActivity;
+import com.example.myapplication.ui.sport.FrisbeeActivity;
 import com.example.myapplication.ui.sport.GymActivity;
+import com.example.myapplication.ui.sport.MoreActivity;
 import com.example.myapplication.ui.sport.RunActivity;
-import com.example.myapplication.ui.sport.SportActivity;
 import com.example.myapplication.ui.sport.SwimActivity;
+import com.example.myapplication.ui.sport.TableTennisAvtivity;
+import com.example.myapplication.ui.sport.TdActivity;
+import com.example.myapplication.ui.sport.TennisActivity;
 import com.example.myapplication.ui.sport.VolleyballActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -76,15 +80,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (view.getId() == R.id.btn_gym) {
             intent = new Intent(this, GymActivity.class);
         } else if (view.getId() == R.id.btn_tabletennis) {
-
+            intent = new Intent(this, TableTennisAvtivity.class);
         } else if (view.getId() == R.id.btn_tennis) {
-
+            intent = new Intent(this, TennisActivity.class);
         } else if (view.getId() == R.id.btn_frisbee) {
-
+            intent = new Intent(this, FrisbeeActivity.class);
         } else if (view.getId() == R.id.btn_td) {
-
+            intent = new Intent(this, TdActivity.class);
         } else if (view.getId() == R.id.btn_more) {
-
+            intent = new Intent(this, MoreActivity.class);
         }
         startActivity(intent);
     }
