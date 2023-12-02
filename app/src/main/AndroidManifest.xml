@@ -23,6 +23,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".LoginSQLiteActivity"
+            android:exported="false"
+            android:label="Login"/>
+        <activity
             android:name=".ui.sport.RunActivity"
             android:exported="false"
             android:label="Run" />
