@@ -31,6 +31,10 @@
 <!--            android:exported="false"-->
 <!--            android:label="Run" />-->
         <activity
+            android:name=".ui.sport.RunActivity"
+            android:exported="false"
+            android:label="Run" />
+        <activity
             android:name=".ui.sport.FrisbeeActivity"
             android:exported="false"
             android:label="Frisbee" />
@@ -39,7 +43,7 @@
             android:exported="false"
             android:label="More" />
         <activity
-            android:name=".ui.sport.TableTennisAvtivity"
+            android:name=".ui.sport.TableTennisActivity"
             android:exported="false"
             android:label="TableTennis" />
         <activity

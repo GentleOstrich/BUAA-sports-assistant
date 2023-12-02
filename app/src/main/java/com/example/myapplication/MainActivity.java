@@ -12,7 +12,7 @@ import com.example.myapplication.ui.sport.GymActivity;
 import com.example.myapplication.ui.sport.MoreActivity;
 import com.example.myapplication.ui.sport.RunActivity;
 import com.example.myapplication.ui.sport.SwimActivity;
-import com.example.myapplication.ui.sport.TableTennisAvtivity;
+import com.example.myapplication.ui.sport.TableTennisActivity;
 import com.example.myapplication.ui.sport.TdActivity;
 import com.example.myapplication.ui.sport.TennisActivity;
 import com.example.myapplication.ui.sport.VolleyballActivity;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+                R.id.navigation_home, R.id.navigation_team, R.id.navigation_notifications)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (view.getId() == R.id.btn_gym) {
             intent = new Intent(this, GymActivity.class);
         } else if (view.getId() == R.id.btn_tabletennis) {
-            intent = new Intent(this, TableTennisAvtivity.class);
+            intent = new Intent(this, TableTennisActivity.class);
         } else if (view.getId() == R.id.btn_tennis) {
             intent = new Intent(this, TennisActivity.class);
         } else if (view.getId() == R.id.btn_frisbee) {
