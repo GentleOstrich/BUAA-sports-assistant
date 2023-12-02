@@ -7,134 +7,185 @@
     tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        tools:ignore="MissingConstraints">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginBottom="50dp"
+            tools:ignore="MissingConstraints">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <ImageButton
-                    android:id="@+id/btn_run"
-                    android:src="@drawable/ic_manpao"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    tools:ignore="MissingConstraints"
-                    android:contentDescription="manpao" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/btn_run"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="manpao"
+                        android:src="@drawable/ic_manpao"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageButton
+                        android:id="@+id/btn_basketball"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="lanqiu"
+                        android:src="@drawable/ic_lanqiu"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageButton
+                        android:id="@+id/btn_football"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="zuqiu"
+                        android:src="@drawable/ic_zuqiu"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageButton
+                        android:id="@+id/btn_volleyball"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="paiqiu"
+                        android:src="@drawable/ic_paiqiu"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageButton
+                        android:id="@+id/btn_badminton"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="yumaoqiu"
+                        android:src="@drawable/ic_yumaoqiu"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageButton
+                        android:id="@+id/btn_swim"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="youyong"
+                        android:src="@drawable/ic_youyong"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageButton
+                        android:id="@+id/btn_gym"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="jianshen"
+                        android:src="@drawable/ic_jianshen"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageButton
+                        android:id="@+id/btn_tabletennis"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="taiqiu"
+                        android:src="@drawable/ic_taiqiu"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageButton
+                        android:id="@+id/btn_tennis"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="wangqiu"
+                        android:src="@drawable/ic_wangqiu"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageButton
+                        android:id="@+id/btn_frisbee"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="feipan"
+                        android:src="@drawable/ic_feipan"
+                        tools:ignore="MissingConstraints" />
+
+                    <Button
+                        android:id="@+id/btn_td"
+                        android:layout_width="88dp"
+                        android:layout_height="88dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="10dp"
+                        android:background="#D6D6D7"
+                        android:hint="TD"
+                        android:textSize="40sp"
+                        tools:ignore="MissingConstraints" />
+
+                    <Button
+                        android:id="@+id/btn_more"
+                        android:layout_width="88dp"
+                        android:layout_height="88dp"
+                        android:layout_gravity="center"
+                        android:background="#D6D6D7"
+                        android:hint="···"
+                        android:textSize="40sp"
+                        tools:ignore="MissingConstraints" />
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+
+                >
 
                 <ImageButton
-                    android:id="@+id/btn_basketball"
-                    android:src="@drawable/ic_lanqiu"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    tools:ignore="MissingConstraints"
-                    android:contentDescription="lanqiu" />
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    ></ImageButton>
 
                 <ImageButton
-                    android:id="@+id/btn_football"
-                    android:src="@drawable/ic_zuqiu"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    tools:ignore="MissingConstraints"
-                    android:contentDescription="zuqiu" />
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    ></ImageButton>
 
-                <ImageButton
-                    android:id="@+id/btn_volleyball"
-                    android:src="@drawable/ic_paiqiu"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    tools:ignore="MissingConstraints"
-                    android:contentDescription="paiqiu" />
-                <ImageButton
-                    android:id="@+id/btn_badminton"
-                    android:src="@drawable/ic_yumaoqiu"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    tools:ignore="MissingConstraints"
-                    android:contentDescription="yumaoqiu" />
 
-                <ImageButton
-                    android:id="@+id/btn_swim"
-                    android:src="@drawable/ic_youyong"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    tools:ignore="MissingConstraints"
-                    android:contentDescription="youyong" />
-
-                <ImageButton
-                    android:id="@+id/btn_gym"
-                    android:src="@drawable/ic_jianshen"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    tools:ignore="MissingConstraints"
-                    android:contentDescription="jianshen" />
-
-                <ImageButton
-                    android:id="@+id/btn_tabletennis"
-                    android:src="@drawable/ic_taiqiu"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    tools:ignore="MissingConstraints"
-                    android:contentDescription="taiqiu" />
-
-                <ImageButton
-                    android:id="@+id/btn_tennis"
-                    android:src="@drawable/ic_wangqiu"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    tools:ignore="MissingConstraints"
-                    android:contentDescription="wangqiu" />
-
-                <ImageButton
-                    android:id="@+id/btn_frisbee"
-                    android:src="@drawable/ic_feipan"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    tools:ignore="MissingConstraints"
-                    android:contentDescription="feipan" />
-
-                <Button
-                    android:id="@+id/btn_td"
-                    android:hint="TD"
-                    android:background="#D6D6D7"
-                    android:textSize="40sp"
-                    android:layout_width="88dp"
-                    android:layout_height="88dp"
-                    android:layout_gravity="center"
-                    tools:ignore="MissingConstraints"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="5dp"/>
-
-                <Button
-                    android:id="@+id/btn_more"
-                    android:hint="···"
-                    android:background="#D6D6D7"
-                    android:textSize="40sp"
-                    android:layout_width="88dp"
-                    android:layout_height="88dp"
-                    android:layout_gravity="center"
-                    tools:ignore="MissingConstraints" />
             </LinearLayout>
-        </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="50dp">
+                <ImageButton
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    ></ImageButton>
+
+                <ImageButton
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    ></ImageButton>
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
