@@ -4,17 +4,17 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "team2user")
-public class Team2User {
+public class Team2UserBean {
     @DatabaseField
     private int id;
 
     // 复合主键
     @DatabaseField(foreign = true, foreignAutoRefresh = true, uniqueCombo = true)
-    private Team gameId;
+    private TeamBean gameId;
     @DatabaseField(foreign = true, foreignAutoRefresh = true, uniqueCombo = true)
-    private User participantId;
+    private UserBean participantId;
 
-    public Team2User(int id, Team gameId, User participantId) {
+    public Team2UserBean(int id, TeamBean gameId, UserBean participantId) {
         this.id = id;
         this.gameId = gameId;
         this.participantId = participantId;
@@ -28,19 +28,19 @@ public class Team2User {
         this.id = id;
     }
 
-    public Team getGameId() {
+    public TeamBean getGameId() {
         return gameId;
     }
 
-    public void setGameId(Team gameId) {
+    public void setGameId(TeamBean gameId) {
         this.gameId = gameId;
     }
 
-    public User getParticipantId() {
+    public UserBean getParticipantId() {
         return participantId;
     }
 
-    public void setParticipantId(User participantId) {
+    public void setParticipantId(UserBean participantId) {
         this.participantId = participantId;
     }
 }

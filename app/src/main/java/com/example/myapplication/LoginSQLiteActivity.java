@@ -12,7 +12,6 @@ import android.view.View.OnFocusChangeListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +26,6 @@ import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Random;
 
 @SuppressLint("DefaultLocale")
 public class LoginSQLiteActivity extends AppCompatActivity implements View.OnClickListener, OnFocusChangeListener {
@@ -43,7 +41,7 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
     private String mVerifyCode; // 验证码
 //    private UserDBHelper mHelper; // 声明一个用户数据库的帮助器对象
     private mdbHelper mdbHelper;
-    private Dao<User, Integer> userDao = null;
+    private Dao<UserBean, Integer> userDao = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -159,7 +157,7 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
 //        mHelper.openWriteLink(); // 恢复页面，则打开数据库连接
         mdbHelper = com.example.myapplication.database.mdbHelper.getInstance(this); // 获得用户数据库帮助器的实例
         try {
-            userDao = mdbHelper.getUserDao();
+            userDao = .getDao(Us);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -194,8 +192,8 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
 //            info.update_time = DateUtil.getNowDateTime("yyyy-MM-dd HH:mm:ss");
 //            mHelper.insert(info); // 往用户数据库添加登录成功的用户信息
 //            mHelper.insert(info); // 往用户数据库添加登录成功的用户信息
-            User user = new User(et_phone.getText().toString(), et_password.getText().toString());
-            userDao.create(user);
+            UserBean userBean = new UserBean(et_phone.getText().toString(), et_password.getText().toString());
+            userDao.create(userBean);
         }
     }
 
@@ -208,15 +206,15 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
         if (v.getId() == R.id.et_password) {
             // 用户已输入手机号码，且密码框获得焦点
             if (phone.length() > 0 && hasFocus) {
-                ArrayList<User> user = new ArrayList<>();
+                ArrayList<UserBean> userBean = new ArrayList<>();
                 try {
-                    user.addAll(userDao.queryForEq("account", phone));
+                    userBean.addAll(userDao.queryForEq("account", phone));
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
-                if (!user.isEmpty()) {
+                if (!userBean.isEmpty()) {
                     // 找到用户记录，则自动在密码框中填写该用户的密码
-                    et_password.setText(user.get(0).getPassword());
+                    et_password.setText(userBean.get(0).getPassword());
                 }
                 // 根据手机号码到数据库中查询用户记录
 //                UserInfo info = mHelper.queryByPhone(phone);

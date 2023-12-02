@@ -4,7 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "user")
-public class User {
+public class UserBean {
     @DatabaseField(generatedId = true)
     private int id;
     @DatabaseField(canBeNull = false)
@@ -13,19 +13,19 @@ public class User {
     private String password;
 
     private static int cnt = 0;
-    public User(int id, String account, String password) {
+    public UserBean(int id, String account, String password) {
         this.id = id;
         this.account = account;
         this.password = password;
     }
 
-    public User() {
+    public UserBean() {
         this.id = cnt++;
         this.account = null;
         this.password = null;
     }
 
-    public User(String account, String password) {
+    public UserBean(String account, String password) {
         this.id = cnt++;
         this.account = account;
         this.password = password;

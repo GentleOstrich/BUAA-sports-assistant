@@ -4,7 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "strategy")
-public class Strategy {
+public class StrategyBean {
     @DatabaseField(generatedId = true)
     private int id;
     @DatabaseField(canBeNull = false)
@@ -12,9 +12,9 @@ public class Strategy {
     @DatabaseField(canBeNull = false)
     private String content;
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
-    private User publisherId;
+    private UserBean publisherId;
 
-    public Strategy(int id, String title, String content, User publisherId) {
+    public StrategyBean(int id, String title, String content, UserBean publisherId) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -45,11 +45,11 @@ public class Strategy {
         this.content = content;
     }
 
-    public User getPublisherId() {
+    public UserBean getPublisherId() {
         return publisherId;
     }
 
-    public void setPublisherId(User publisherId) {
+    public void setPublisherId(UserBean publisherId) {
         this.publisherId = publisherId;
     }
 }
