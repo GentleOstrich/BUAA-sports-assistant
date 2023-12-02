@@ -31,9 +31,6 @@ import java.util.Random;
 
 @SuppressLint("DefaultLocale")
 public class LoginSQLiteActivity extends AppCompatActivity implements View.OnClickListener, OnFocusChangeListener {
-    private RadioGroup rg_login; // 声明一个单选组对象
-    private RadioButton rb_password; // 声明一个单选按钮对象
-    private RadioButton rb_verifycode; // 声明一个单选按钮对象
     private EditText et_phone; // 声明一个编辑框对象
     private TextView tv_password; // 声明一个文本视图对象
     private EditText et_password; // 声明一个编辑框对象
@@ -60,8 +57,6 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
         et_password = findViewById(R.id.et_password);
         btn_forget = findViewById(R.id.btn_forget);
         ck_remember = findViewById(R.id.ck_remember);
-        // 给rg_login设置单选监听器
-        rg_login.setOnCheckedChangeListener(new RadioListener());
         // 给ck_remember设置勾选监听器
         ck_remember.setOnCheckedChangeListener((buttonView, isChecked) -> isRemember = isChecked);
         // 给et_phone添加文本变更监听器
@@ -132,47 +127,10 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
                 Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (rb_password.isChecked()) { // 选择了密码方式校验，此时要跳到找回密码页面
-                // 以下携带手机号码跳转到找回密码页面
-//                Intent intent = new Intent(this, LoginForgetActivity.class);
-//                intent.putExtra("phone", phone);
-//                startActivityForResult(intent, mRequestCode); // 携带意图返回上一个页面
-            } else if (rb_verifycode.isChecked()) { // 选择了验证码方式校验，此时要生成六位随机数字验证码
-                // 生成六位随机数字的验证码
-                mVerifyCode = String.format("%06d", new Random().nextInt(999999));
-                // 以下弹出提醒对话框，提示用户记住六位验证码数字
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("请记住验证码");
-                builder.setMessage("手机号" + phone + "，本次验证码是" + mVerifyCode + "，请输入验证码");
-                builder.setPositiveButton("好的", null);
-                AlertDialog alert = builder.create();
-                alert.show(); // 显示提醒对话框
-            }
         } else if (v.getId() == R.id.btn_login) { // 点击了“登录”按钮
             if (phone.length() < 11) { // 手机号码不足11位
                 Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
                 return;
-            }
-            if (rb_password.isChecked()) { // 密码方式校验
-                if (!et_password.getText().toString().equals(mPassword)) {
-                    Toast.makeText(this, "请输入正确的密码", Toast.LENGTH_SHORT).show();
-                } else { // 密码校验通过
-                    try {
-                        loginSuccess(); // 提示用户登录成功
-                    } catch (SQLException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            } else if (rb_verifycode.isChecked()) { // 验证码方式校验
-                if (!et_password.getText().toString().equals(mVerifyCode)) {
-                    Toast.makeText(this, "请输入正确的验证码", Toast.LENGTH_SHORT).show();
-                } else { // 验证码校验通过
-                    try {
-                        loginSuccess(); // 提示用户登录成功
-                    } catch (SQLException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
             }
         }
     }
