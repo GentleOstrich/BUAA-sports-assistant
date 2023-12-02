@@ -4,7 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.myapplication.ui.sport.BadmintonActivity;
+import com.example.myapplication.ui.sport.BasketballActivity;
+import com.example.myapplication.ui.sport.FootballActivity;
+import com.example.myapplication.ui.sport.GymActivity;
 import com.example.myapplication.ui.sport.RunActivity;
+import com.example.myapplication.ui.sport.SportActivity;
+import com.example.myapplication.ui.sport.SwimActivity;
+import com.example.myapplication.ui.sport.VolleyballActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,32 +60,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this, SportActivity.class);
+        Intent intent = null;
         if (view.getId() == R.id.btn_run) {
             intent = new Intent(this, RunActivity.class);
-            intent.putExtra("run", 0);
         } else if (view.getId() == R.id.btn_basketball) {
-            intent.putExtra("basketball", 0);
+            intent = new Intent(this, BasketballActivity.class);
         } else if (view.getId() == R.id.btn_football) {
-            intent.putExtra("football",0);
+            intent = new Intent(this, FootballActivity.class);
         } else if (view.getId() == R.id.btn_volleyball) {
-            intent.putExtra("volleyball",0);
+            intent = new Intent(this, VolleyballActivity.class);
         } else if (view.getId() == R.id.btn_badminton) {
-            intent.putExtra("badminton",0);
+            intent = new Intent(this, BadmintonActivity.class);
         } else if (view.getId() == R.id.btn_swim) {
-            intent.putExtra("swim",0);
+            intent = new Intent(this, SwimActivity.class);
         } else if (view.getId() == R.id.btn_gym) {
-            intent.putExtra("gym",0);
+            intent = new Intent(this, GymActivity.class);
         } else if (view.getId() == R.id.btn_tabletennis) {
-            intent.putExtra("tabletennis",0);
+
         } else if (view.getId() == R.id.btn_tennis) {
-            intent.putExtra("tennis",0);
+
         } else if (view.getId() == R.id.btn_frisbee) {
-            intent.putExtra("frisbee",0);
+
         } else if (view.getId() == R.id.btn_td) {
-            intent.putExtra("td",0);
+
         } else if (view.getId() == R.id.btn_more) {
-            intent.putExtra("more",0);
+
         }
         startActivity(intent);
     }

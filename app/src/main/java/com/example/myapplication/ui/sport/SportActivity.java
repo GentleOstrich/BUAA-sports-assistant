@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.ui.sport;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.myapplication.R;
 
 public class SportActivity extends AppCompatActivity implements View.OnClickListener {
 
