@@ -35,6 +35,8 @@ android {
 }
 
 dependencies {
+    implementation("com.j256.ormlite:ormlite-android:5.1")
+    implementation("com.j256.ormlite:ormlite-core:5.1")
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.8.0")
