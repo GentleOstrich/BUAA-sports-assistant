@@ -14,11 +14,19 @@ public class SportsBean {
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
     private UserBean usrId;
 
+    private static int cnt = 0;
     public SportsBean(int sportsId, String type, String time, UserBean usrId) {
         this.sportsId = sportsId;
         this.type = type;
         this.time = time;
         this.usrId = usrId;
+    }
+
+    public SportsBean() {
+        this.sportsId = cnt++;
+//        this.type = type;
+//        this.time = time;
+//        this.usrId = usrId;
     }
 
     public int getSportsId() {

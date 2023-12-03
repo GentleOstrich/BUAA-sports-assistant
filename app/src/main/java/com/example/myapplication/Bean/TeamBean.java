@@ -12,10 +12,17 @@ public class TeamBean {
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
     private UserBean organizerId;
 
+    private static int cnt = 0;
     public TeamBean(int teamId, SportsBean sportsBeanId, UserBean organizerId) {
         this.teamId = teamId;
         this.sportsBeanId = sportsBeanId;
         this.organizerId = organizerId;
+    }
+
+    public TeamBean() {
+        this.teamId = cnt++;
+//        this.sportsBeanId = sportsBeanId;
+//        this.organizerId = organizerId;
     }
 
     public int getTeamId() {
