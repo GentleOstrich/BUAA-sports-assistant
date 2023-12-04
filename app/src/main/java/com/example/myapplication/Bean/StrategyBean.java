@@ -14,11 +14,19 @@ public class StrategyBean {
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
     private UserBean publisherId;
 
+    private static int cnt = 0;
     public StrategyBean(int id, String title, String content, UserBean publisherId) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.publisherId = publisherId;
+    }
+
+    public StrategyBean() {
+        this.id = cnt++;
+//        this.title = title;
+//        this.content = content;
+//        this.publisherId = publisherId;
     }
 
     public int getId() {

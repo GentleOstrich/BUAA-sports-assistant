@@ -11,12 +11,12 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.example.myapplication.Bean.*;
 
-public class mdbHelper extends OrmLiteSqliteOpenHelper {
+public class MdbHelper extends OrmLiteSqliteOpenHelper {
     // 数据库名字
     private static final String TABLE_NAME = "ormlite-test.db";
 
     // 本类的单例实例
-    private static mdbHelper instance;
+    private static MdbHelper instance;
 
     // 存储APP中所有的DAO对象的Map集合
     private ArrayMap<String, Dao> daos = new ArrayMap<>();
@@ -24,8 +24,9 @@ public class mdbHelper extends OrmLiteSqliteOpenHelper {
     // 表的Dao，每一张表对应一个Dao
 //    private Dao<UserBean, Integer> userDao;
 
+    private Integer curUserId = null;
     // 构造函数，私有的外部不能直接访问
-    private mdbHelper(Context context) {
+    private MdbHelper(Context context) {
         super(context, TABLE_NAME, null, 1);
     }
 
@@ -60,11 +61,11 @@ public class mdbHelper extends OrmLiteSqliteOpenHelper {
      * @param context
      * @return
      */
-    public static synchronized mdbHelper getInstance(Context context) {
+    public static synchronized MdbHelper getInstance(Context context) {
         if (instance == null) {
-            synchronized (mdbHelper.class) {
+            synchronized (MdbHelper.class) {
                 if (instance == null)
-                    instance = new mdbHelper(context);
+                    instance = new MdbHelper(context);
             }
         }
         return instance;

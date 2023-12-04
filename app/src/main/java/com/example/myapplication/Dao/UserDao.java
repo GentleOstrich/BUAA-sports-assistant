@@ -3,7 +3,7 @@ package com.example.myapplication.Dao;
 import android.content.Context;
 
 import com.example.myapplication.Bean.UserBean;
-import com.example.myapplication.database.mdbHelper;
+import com.example.myapplication.database.MdbHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.QueryBuilder;
 
@@ -20,13 +20,13 @@ import java.util.List;
  * 调用dao的queryForAll()方法查询表中的所有数据
  */
 
-public class UserDao {
+public class UserDao implements mDao {
     // ORMLite提供的DAO类对象，第一个泛型是要操作的数据表映射成的实体类；第二个泛型是这个实体类中ID的数据类型
     private Dao<UserBean, Integer> dao;
 
     public UserDao(Context context) {
         try {
-            this.dao = mdbHelper.getInstance(context).getDao(UserBean.class);
+            this.dao = MdbHelper.getInstance(context).getDao(UserBean.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -143,30 +143,30 @@ public class UserDao {
     }
 
     // 通过条件查询集合（例如：通过messageId和title）
-    public List<UserBean> queryByMessageIdAndTitle(int messageId, String title) {
-        try {
-            QueryBuilder<UserBean, Integer> builder = dao.queryBuilder();
-            builder
-                    .where()
-                    .eq("messageId", messageId)
-                    .and()
-                    .eq("title", title);
-            builder.orderBy("messageId", false);
-            return builder.query();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+//    public List<UserBean> queryByMessageIdAndTitle(int messageId, String title) {
+//        try {
+//            QueryBuilder<UserBean, Integer> builder = dao.queryBuilder();
+//            builder
+//                    .where()
+//                    .eq("messageId", messageId)
+//                    .and()
+//                    .eq("title", title);
+//            builder.orderBy("messageId", false);
+//            return builder.query();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
 
     // 通过条件查询集合（例如：通过content）
-    public List<UserBean> queryByContent(String content) {
+    public List<UserBean> queryByAccount(String content) {
         try {
             QueryBuilder<UserBean, Integer> builder = dao.queryBuilder();
             builder
                     .where()
-                    .eq("content", content);
-            builder.orderBy("title", false);
+                    .eq("account", content);
+            builder.orderBy("id", false);
             return builder.query();
         } catch (SQLException e) {
             e.printStackTrace();
