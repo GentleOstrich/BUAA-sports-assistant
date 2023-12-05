@@ -32,123 +32,120 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
+                        android:background="@color/white"
                         android:contentDescription="manpao"
                         android:src="@drawable/ic_manpao"
-                        tools:ignore="MissingConstraints"
-                        android:background="@color/white"/>
+                        tools:ignore="MissingConstraints" />
 
                     <ImageButton
                         android:id="@+id/btn_basketball"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
+                        android:background="@color/white"
                         android:contentDescription="lanqiu"
                         android:src="@drawable/ic_lanqiu"
-                        tools:ignore="MissingConstraints"
-                        android:background="@color/white"/>
+                        tools:ignore="MissingConstraints" />
 
                     <ImageButton
                         android:id="@+id/btn_football"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
+                        android:background="@color/white"
                         android:contentDescription="zuqiu"
                         android:src="@drawable/ic_zuqiu"
-                        tools:ignore="MissingConstraints"
-                        android:background="@color/white"/>
+                        tools:ignore="MissingConstraints" />
 
                     <ImageButton
                         android:id="@+id/btn_volleyball"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
+                        android:background="@color/white"
                         android:contentDescription="paiqiu"
                         android:src="@drawable/ic_paiqiu"
-                        tools:ignore="MissingConstraints"
-                        android:background="@color/white"/>
+                        tools:ignore="MissingConstraints" />
 
                     <ImageButton
                         android:id="@+id/btn_badminton"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
+                        android:background="@color/white"
                         android:contentDescription="yumaoqiu"
                         android:src="@drawable/ic_yumaoqiu"
-                        tools:ignore="MissingConstraints"
-                        android:background="@color/white"/>
+                        tools:ignore="MissingConstraints" />
 
                     <ImageButton
                         android:id="@+id/btn_swim"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
+                        android:background="@color/white"
                         android:contentDescription="youyong"
                         android:src="@drawable/ic_youyong"
-                        tools:ignore="MissingConstraints"
-                        android:background="@color/white"/>
+                        tools:ignore="MissingConstraints" />
 
                     <ImageButton
                         android:id="@+id/btn_gym"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
+                        android:background="@color/white"
                         android:contentDescription="jianshen"
                         android:src="@drawable/ic_jianshen"
-                        tools:ignore="MissingConstraints"
-                        android:background="@color/white"/>
+                        tools:ignore="MissingConstraints" />
 
                     <ImageButton
                         android:id="@+id/btn_tabletennis"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
+                        android:background="@color/white"
                         android:contentDescription="taiqiu"
                         android:src="@drawable/ic_taiqiu"
-                        tools:ignore="MissingConstraints"
-                        android:background="@color/white"/>
+                        tools:ignore="MissingConstraints" />
 
                     <ImageButton
                         android:id="@+id/btn_tennis"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
+                        android:background="@color/white"
                         android:contentDescription="wangqiu"
                         android:src="@drawable/ic_wangqiu"
-                        tools:ignore="MissingConstraints"
-                        android:background="@color/white"/>
+                        tools:ignore="MissingConstraints" />
 
                     <ImageButton
                         android:id="@+id/btn_frisbee"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
+                        android:background="@color/white"
                         android:contentDescription="feipan"
                         android:src="@drawable/ic_feipan"
-                        tools:ignore="MissingConstraints"
-                        android:background="@color/white"/>
+                        tools:ignore="MissingConstraints" />
 
                     <ImageButton
                         android:id="@+id/btn_td"
-                        android:layout_width="88dp"
-                        android:layout_height="88dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="10dp"
                         android:background="@color/white"
-                        android:hint="TD"
-                        android:textSize="40sp"
-                        tools:ignore="MissingConstraints"
-                        />
+                        android:contentDescription="feipan"
+                        android:src="@drawable/ic_td"
+                        tools:ignore="MissingConstraints" />
 
                     <ImageButton
                         android:id="@+id/btn_more"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
+                        android:background="@color/white"
                         android:contentDescription="more"
                         android:src="@drawable/ic_more"
-                        tools:ignore="MissingConstraints"
-                        android:background="@color/white" />
+                        tools:ignore="MissingConstraints" />
                 </LinearLayout>
             </HorizontalScrollView>
         </LinearLayout>
@@ -178,7 +175,9 @@
                     <ImageButton
                         android:layout_width="200dp"
                         android:layout_height="200dp"
-                        android:layout_weight="1"></ImageButton>
+                        android:layout_weight="1"
+                        android:background="@color/white"></ImageButton>
+
 
                 </LinearLayout>
 
@@ -189,12 +188,15 @@
                     <ImageButton
                         android:layout_width="200dp"
                         android:layout_height="200dp"
-                        android:layout_weight="1"></ImageButton>
+                        android:layout_weight="1"
+                        android:background="@color/white"></ImageButton>
 
                     <ImageButton
                         android:layout_width="200dp"
                         android:layout_height="200dp"
-                        android:layout_weight="1"></ImageButton>
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:src="@drawable/recommend"></ImageButton>
                 </LinearLayout>
 
 

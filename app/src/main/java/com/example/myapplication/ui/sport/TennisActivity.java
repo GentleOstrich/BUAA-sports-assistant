@@ -66,7 +66,7 @@ public class TennisActivity extends AppCompatActivity implements View.OnClickLis
                     UserDao userDao = new UserDao(this);
                     List<UserBean> userBeans = userDao.queryByAccount(account);
                     for (UserBean userBean : userBeans) {
-                        SportsBean sportsBean = new SportsBean("run", dis, cal, time, userBean);
+                        SportsBean sportsBean = new SportsBean("网球", dis, cal, time, userBean);
                         SportsDao sportsDao = new SportsDao(this);
                         sportsDao.insert(sportsBean);
                     }

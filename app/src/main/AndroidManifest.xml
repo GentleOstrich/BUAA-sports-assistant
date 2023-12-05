@@ -25,7 +25,7 @@
         <activity
             android:name=".LoginSQLiteActivity"
             android:exported="false"
-            android:label="登录"/>
+            android:label="登录" />
         <activity
             android:name=".ui.sport.RunActivity"
             android:exported="false"
@@ -57,23 +57,27 @@
         <activity
             android:name=".ui.sport.GymActivity"
             android:exported="false"
-            android:label="健身"/>
+            android:label="健身" />
         <activity
             android:name=".ui.sport.SwimActivity"
             android:exported="false"
-            android:label="游泳"/>
+            android:label="游泳" />
         <activity
             android:name=".ui.sport.BadmintonActivity"
             android:exported="false"
-            android:label="羽毛球"/>
+            android:label="羽毛球" />
         <activity
             android:name=".ui.sport.VolleyballActivity"
             android:exported="false"
-            android:label="排球"/>
+            android:label="排球" />
         <activity
             android:name=".ui.sport.FootballActivity"
             android:exported="false"
-            android:label="足球"/>
+            android:label="足球" />
+        <activity
+            android:name=".HistoryActivity"
+            android:exported="false"
+            android:label="运动历史" />
     </application>
 
 </manifest>

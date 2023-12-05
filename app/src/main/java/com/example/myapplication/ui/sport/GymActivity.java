@@ -66,7 +66,7 @@ public class GymActivity extends AppCompatActivity implements View.OnClickListen
                     UserDao userDao = new UserDao(this);
                     List<UserBean> userBeans = userDao.queryByAccount(account);
                     for (UserBean userBean : userBeans) {
-                        SportsBean sportsBean = new SportsBean("run", dis, cal, time, userBean);
+                        SportsBean sportsBean = new SportsBean("健身", dis, cal, time, userBean);
                         SportsDao sportsDao = new SportsDao(this);
                         sportsDao.insert(sportsBean);
                     }

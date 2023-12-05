@@ -65,7 +65,7 @@ public class SwimActivity extends AppCompatActivity implements View.OnClickListe
                     UserDao userDao = new UserDao(this);
                     List<UserBean> userBeans = userDao.queryByAccount(account);
                     for (UserBean userBean : userBeans) {
-                        SportsBean sportsBean = new SportsBean("run", dis, cal, time, userBean);
+                        SportsBean sportsBean = new SportsBean("游泳", dis, cal, time, userBean);
                         SportsDao sportsDao = new SportsDao(this);
                         sportsDao.insert(sportsBean);
                     }

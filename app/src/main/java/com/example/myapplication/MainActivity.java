@@ -5,21 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
-import com.example.myapplication.ui.sport.BadmintonActivity;
-import com.example.myapplication.ui.sport.BasketballActivity;
-import com.example.myapplication.ui.sport.FootballActivity;
-import com.example.myapplication.ui.sport.FrisbeeActivity;
-import com.example.myapplication.ui.sport.GymActivity;
-import com.example.myapplication.ui.sport.MoreActivity;
-import com.example.myapplication.ui.sport.RunActivity;
-import com.example.myapplication.ui.sport.SwimActivity;
-import com.example.myapplication.ui.sport.TableTennisActivity;
-import com.example.myapplication.ui.sport.TdActivity;
-import com.example.myapplication.ui.sport.TennisActivity;
-import com.example.myapplication.ui.sport.VolleyballActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,8 +16,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
 
-import java.util.Objects;
-
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -41,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private MenuItem item2;
 
     private MenuItem item3;
+
+    private MenuItem item4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,9 +63,10 @@ public class MainActivity extends AppCompatActivity {
             String account = getSharedPreferences("user", MODE_PRIVATE).getString("account", "none");
             if (!account.equals("none")) {
                 item1.setTitle("退出登录");
-                if(menu.findItem(2)==null) {
+                if (menu.findItem(2) == null) {
                     item2 = menu.add(Menu.NONE, 2, 2, "发布组局");
                     item3 = menu.add(Menu.NONE, 3, 3, "发布攻略");
+                    item4 = menu.add(Menu.NONE, 4, 4, "运动历史");
                 }
             } else {
                 item1.setTitle("登录");
@@ -91,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
                 if (itemToRemove != null) {
                     menu.removeItem(3);
                 }
+                itemToRemove = menu.findItem(4);
+                if (itemToRemove != null) {
+                    menu.removeItem(4);
+                }
 
             }
         }
@@ -100,9 +91,9 @@ public class MainActivity extends AppCompatActivity {
 
     //点击实现的操作
     public boolean onOptionsItemSelected(MenuItem item) {
+        String account = getSharedPreferences("user", MODE_PRIVATE).getString("account", "none");
         switch (item.getItemId()) {
             case 1:
-                String account = getSharedPreferences("user", MODE_PRIVATE).getString("account", "none");
                 if (account.equals("none")) {
                     startActivity(new Intent(this, LoginSQLiteActivity.class));
                 } else {
@@ -116,6 +107,11 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             case 3:
+                break;
+            case 4:
+                if (!account.equals("none")) {
+                    startActivity(new Intent(this, HistoryActivity.class));
+                }
                 break;
         }
         return true;

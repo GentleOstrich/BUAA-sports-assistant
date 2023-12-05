@@ -86,7 +86,7 @@ public class BasketballActivity extends AppCompatActivity implements View.OnClic
                     UserDao userDao = new UserDao(this);
                     List<UserBean> userBeans = userDao.queryByAccount(account);
                     for (UserBean userBean : userBeans) {
-                        SportsBean sportsBean = new SportsBean("run", dis, cal, time, userBean);
+                        SportsBean sportsBean = new SportsBean("篮球", dis, cal, time, userBean);
                         SportsDao sportsDao = new SportsDao(this);
                         sportsDao.insert(sportsBean);
                     }

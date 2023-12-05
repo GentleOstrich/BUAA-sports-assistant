@@ -7,7 +7,9 @@ import com.example.myapplication.database.MdbHelper;
 import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class SportsDao implements mDao {
     // ORMLite提供的DAO类对象，第一个泛型是要操作的数据表映射成的实体类；第二个泛型是这个实体类中ID的数据类型
@@ -118,6 +120,22 @@ public class SportsDao implements mDao {
             e.printStackTrace();
         }
         return users;
+    }
+
+    public List<SportsBean> queryByAccount(String account) {
+        List<SportsBean> users = null;
+        List<SportsBean> ret = new ArrayList<>();
+        try {
+            users = dao.queryForAll();
+            for (SportsBean sportsBean : users) {
+                if (Objects.equals(sportsBean.getUsrBean().getAccount(), account)) {
+                    ret.add(sportsBean);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ret;
     }
 
     // 根据ID取出用户信息
