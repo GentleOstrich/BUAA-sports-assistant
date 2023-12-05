@@ -25,27 +25,23 @@
         <activity
             android:name=".LoginSQLiteActivity"
             android:exported="false"
-            android:label="Login"/>
+            android:label="登录"/>
         <activity
             android:name=".ui.sport.RunActivity"
             android:exported="false"
-            android:label="Run" />
-        <activity
-            android:name=".ui.sport.RunActivity"
-            android:exported="false"
-            android:label="Run" />
+            android:label="跑步" />
         <activity
             android:name=".ui.sport.FrisbeeActivity"
             android:exported="false"
-            android:label="Frisbee" />
+            android:label="飞盘" />
         <activity
             android:name=".ui.sport.MoreActivity"
             android:exported="false"
-            android:label="More" />
+            android:label="其他" />
         <activity
             android:name=".ui.sport.TableTennisActivity"
             android:exported="false"
-            android:label="TableTennis" />
+            android:label="台球" />
         <activity
             android:name=".ui.sport.TdActivity"
             android:exported="false"
@@ -53,31 +49,31 @@
         <activity
             android:name=".ui.sport.TennisActivity"
             android:exported="false"
-            android:label="Tennis" />
+            android:label="网球" />
         <activity
             android:name=".ui.sport.BasketballActivity"
             android:exported="false"
-            android:label="Basketball" />
+            android:label="篮球" />
         <activity
             android:name=".ui.sport.GymActivity"
             android:exported="false"
-            android:label="Fitness"/>
+            android:label="健身"/>
         <activity
             android:name=".ui.sport.SwimActivity"
             android:exported="false"
-            android:label="Swim"/>
+            android:label="游泳"/>
         <activity
             android:name=".ui.sport.BadmintonActivity"
             android:exported="false"
-            android:label="Badminton"/>
+            android:label="羽毛球"/>
         <activity
             android:name=".ui.sport.VolleyballActivity"
             android:exported="false"
-            android:label="Volleyball"/>
+            android:label="排球"/>
         <activity
             android:name=".ui.sport.FootballActivity"
             android:exported="false"
-            android:label="Football"/>
+            android:label="足球"/>
     </application>
 
 </manifest>
