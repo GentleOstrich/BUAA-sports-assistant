@@ -4,18 +4,25 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "team")
-public class Team {
+public class TeamBean {
     @DatabaseField(generatedId = true)
     private int teamId;
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
-    private Sports sportsId;
+    private SportsBean sportsBeanId;
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
-    private User organizerId;
+    private UserBean organizerId;
 
-    public Team(int teamId, Sports sportsId, User organizerId) {
+    private static int cnt = 0;
+    public TeamBean(int teamId, SportsBean sportsBeanId, UserBean organizerId) {
         this.teamId = teamId;
-        this.sportsId = sportsId;
+        this.sportsBeanId = sportsBeanId;
         this.organizerId = organizerId;
+    }
+
+    public TeamBean() {
+        this.teamId = cnt++;
+//        this.sportsBeanId = sportsBeanId;
+//        this.organizerId = organizerId;
     }
 
     public int getTeamId() {
@@ -26,19 +33,19 @@ public class Team {
         this.teamId = teamId;
     }
 
-    public Sports getSportsId() {
-        return sportsId;
+    public SportsBean getSportsId() {
+        return sportsBeanId;
     }
 
-    public void setSportsId(Sports sportsId) {
-        this.sportsId = sportsId;
+    public void setSportsId(SportsBean sportsBeanId) {
+        this.sportsBeanId = sportsBeanId;
     }
 
-    public User getOrganizerId() {
+    public UserBean getOrganizerId() {
         return organizerId;
     }
 
-    public void setOrganizerId(User organizerId) {
+    public void setOrganizerId(UserBean organizerId) {
         this.organizerId = organizerId;
     }
 

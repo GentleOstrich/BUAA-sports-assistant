@@ -2,6 +2,8 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.myapplication.ui.sport.BadmintonActivity;
@@ -92,4 +94,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         startActivity(intent);
     }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //第二个参数表示此menu的id值，在onOptionsItemSelected方法中通过id值判断是哪个menu被点击了
+        menu.add(Menu.NONE, 1, 1, "登录");
+        return true;
+    }
+
+    //点击实现的操作
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case 1:
+                startActivity(new Intent(this, LoginSQLiteActivity.class));
+                break;
+
+        }
+        return true;
+    }
+
 }

@@ -12,7 +12,6 @@ import android.view.View.OnFocusChangeListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,13 +20,16 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.Bean.*;
-import com.example.myapplication.database.mdbHelper;
+import com.example.myapplication.Dao.SportsDao;
+import com.example.myapplication.Dao.StrategyDao;
+import com.example.myapplication.Dao.Team2UserDao;
+import com.example.myapplication.Dao.TeamDao;
+import com.example.myapplication.Dao.UserDao;
+import com.example.myapplication.database.MdbHelper;
 import com.example.myapplication.util.ViewUtil;
-import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Random;
 
 @SuppressLint("DefaultLocale")
 public class LoginSQLiteActivity extends AppCompatActivity implements View.OnClickListener, OnFocusChangeListener {
@@ -40,10 +42,13 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
     private int mRequestCode = 0; // 跳转页面时的请求代码
     private boolean isRemember = false; // 是否记住密码
     private String mPassword = "111111"; // 默认密码
-    private String mVerifyCode; // 验证码
 //    private UserDBHelper mHelper; // 声明一个用户数据库的帮助器对象
-    private mdbHelper mdbHelper;
-    private Dao<User, Integer> userDao = null;
+    private MdbHelper mdbHelper;
+    private UserDao userDao = null;
+    private TeamDao teamDao = null;
+    private Team2UserDao team2UserDao = null;
+    private SportsDao sportsDao = null;
+    private StrategyDao strategyDao = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +137,15 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
                 Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
                 return;
             }
+            if (!et_password.getText().toString().equals(mPassword)) {
+                Toast.makeText(this, "请输入正确的密码", Toast.LENGTH_SHORT).show();
+            } else { // 密码校验通过
+                try {
+                    loginSuccess(); // 提示用户登录成功
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
     }
 
@@ -157,12 +171,12 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
         super.onResume();
 //        mHelper = UserDBHelper.getInstance(this, 1); // 获得用户数据库帮助器的实例
 //        mHelper.openWriteLink(); // 恢复页面，则打开数据库连接
-        mdbHelper = com.example.myapplication.database.mdbHelper.getInstance(this); // 获得用户数据库帮助器的实例
-        try {
-            userDao = mdbHelper.getUserDao();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        mdbHelper = MdbHelper.getInstance(this); // 获得用户数据库帮助器的实例
+        userDao = new UserDao(this);
+        teamDao = new TeamDao(this);
+        team2UserDao = new Team2UserDao(this);
+        sportsDao = new SportsDao(this);
+        strategyDao = new StrategyDao(this);
 //        mdbHelper.openWriteLink(); // 恢复页面，则打开数据库连接
     }
 
@@ -170,6 +184,10 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
     protected void onPause() {
         super.onPause();
         userDao = null;
+        teamDao = null;
+        team2UserDao = null;
+        sportsDao = null;
+        strategyDao = null;
 //        mdbHelper.closeLink(); // 暂停页面，则关闭数据库连接
 //        mdbHelper.closeLink(); // 暂停页面，则关闭数据库连接
     }
@@ -194,8 +212,8 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
 //            info.update_time = DateUtil.getNowDateTime("yyyy-MM-dd HH:mm:ss");
 //            mHelper.insert(info); // 往用户数据库添加登录成功的用户信息
 //            mHelper.insert(info); // 往用户数据库添加登录成功的用户信息
-            User user = new User(et_phone.getText().toString(), et_password.getText().toString());
-            userDao.create(user);
+            UserBean userBean = new UserBean(et_phone.getText().toString(), et_password.getText().toString());
+            userDao.insert(userBean);
         }
     }
 
@@ -208,15 +226,11 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
         if (v.getId() == R.id.et_password) {
             // 用户已输入手机号码，且密码框获得焦点
             if (phone.length() > 0 && hasFocus) {
-                ArrayList<User> user = new ArrayList<>();
-                try {
-                    user.addAll(userDao.queryForEq("account", phone));
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-                if (!user.isEmpty()) {
+                ArrayList<UserBean> userBean = new ArrayList<>();
+                userBean.addAll(userDao.queryByAccount(phone));
+                if (!userBean.isEmpty()) {
                     // 找到用户记录，则自动在密码框中填写该用户的密码
-                    et_password.setText(user.get(0).getPassword());
+                    et_password.setText(userBean.get(0).getPassword());
                 }
                 // 根据手机号码到数据库中查询用户记录
 //                UserInfo info = mHelper.queryByPhone(phone);
