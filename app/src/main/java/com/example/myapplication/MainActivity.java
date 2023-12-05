@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("user", 0);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove("phone");
+        editor.remove("account");
         editor.apply();
     }
 
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
         if (menu != null) {
-            String account = getSharedPreferences("user", MODE_PRIVATE).getString("phone", "none");
+            String account = getSharedPreferences("user", MODE_PRIVATE).getString("account", "none");
             if (!account.equals("none")) {
                 item1.setTitle("退出登录");
                 if(menu.findItem(2)==null) {
@@ -102,13 +102,13 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case 1:
-                String account = getSharedPreferences("user", MODE_PRIVATE).getString("phone", "none");
+                String account = getSharedPreferences("user", MODE_PRIVATE).getString("account", "none");
                 if (account.equals("none")) {
                     startActivity(new Intent(this, LoginSQLiteActivity.class));
                 } else {
                     SharedPreferences sharedPreferences = getSharedPreferences("user", 0);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.remove("phone");
+                    editor.remove("account");
                     editor.apply();
                 }
                 break;

@@ -9,6 +9,7 @@
         android:layout_height="30sp"
         android:text="跑步距离(m)："
         android:textColor="@color/gray"
+        android:textStyle="bold"
         android:textSize="20sp"></TextView>
 
     <EditText
@@ -27,6 +28,7 @@
         android:layout_height="30sp"
         android:text="消耗卡路里(cal)："
         android:textColor="@color/gray"
+        android:textStyle="bold"
         android:textSize="20sp"></TextView>
 
     <EditText
@@ -44,6 +46,7 @@
         android:layout_height="30sp"
         android:text="跑步时间"
         android:textColor="@color/gray"
+        android:textStyle="bold"
         android:textSize="20sp"></TextView>
 
     <EditText
@@ -64,9 +67,9 @@
         android:layout_marginTop="90sp"
         android:background="@drawable/round_corners_bg"
         android:text="提交"
+        android:textStyle="bold"
         android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textColorHighlight="@color/gray"
+        android:textColor="@color/gray"
         android:textSize="17sp" /> <!-- 按钮后续可以加圆角样式 -->
 
 </LinearLayout>

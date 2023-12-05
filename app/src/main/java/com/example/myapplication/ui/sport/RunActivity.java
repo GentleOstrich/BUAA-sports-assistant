@@ -63,7 +63,7 @@ public class RunActivity extends AppCompatActivity implements View.OnClickListen
             String dis = et_dis.getText().toString();
             String cal = et_cal.getText().toString();
             String time = et_time.getText().toString();
-            String account = getSharedPreferences("user", MODE_PRIVATE).getString("phone", "none");
+            String account = getSharedPreferences("user", MODE_PRIVATE).getString("account", "none");
             if (dis.equals("") || cal.equals("") || time.equals("")) {
                 Toast.makeText(this, "请输入正确运动记录", Toast.LENGTH_SHORT).show();
             } else {

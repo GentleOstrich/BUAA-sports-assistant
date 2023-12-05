@@ -9,7 +9,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnFocusChangeListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -21,29 +20,23 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.Bean.*;
-import com.example.myapplication.Dao.SportsDao;
-import com.example.myapplication.Dao.StrategyDao;
-import com.example.myapplication.Dao.Team2UserDao;
-import com.example.myapplication.Dao.TeamDao;
 import com.example.myapplication.Dao.UserDao;
-import com.example.myapplication.database.MdbHelper;
 import com.example.myapplication.util.ViewUtil;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 @SuppressLint("DefaultLocale")
 public class LoginSQLiteActivity extends AppCompatActivity implements View.OnClickListener {
-    private EditText et_phone; // 声明一个编辑框对象
+    private EditText et_account; // 声明一个编辑框对象
     private TextView tv_password; // 声明一个文本视图对象
     private EditText et_password; // 声明一个编辑框对象
-    private Button btn_forget; // 声明一个按钮控件对象
+    //    private Button btn_forget; // 声明一个按钮控件对象
     private CheckBox ck_remember; // 声明一个复选框对象
 
     private int mRequestCode = 0; // 跳转页面时的请求代码
-    private boolean isRemember = false; // 是否记住密码
+    private boolean isRegister = false; // 是否注册
     //    private String mPassword = "111111"; // 默认密码
     //    private UserDBHelper mHelper; // 声明一个用户数据库的帮助器对象
 //    private MdbHelper mdbHelper;
@@ -60,18 +53,18 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_back); //修改actionbar左上角返回按钮的图标
-        et_phone = findViewById(R.id.et_phone);
+        et_account = findViewById(R.id.et_account);
         tv_password = findViewById(R.id.tv_password);
         et_password = findViewById(R.id.et_password);
-        btn_forget = findViewById(R.id.btn_forget);
+//        btn_forget = findViewById(R.id.btn_forget);
         ck_remember = findViewById(R.id.ck_remember);
         // 给ck_remember设置勾选监听器
-        ck_remember.setOnCheckedChangeListener((buttonView, isChecked) -> isRemember = isChecked);
+        ck_remember.setOnCheckedChangeListener((buttonView, isChecked) -> isRegister = isChecked);
         // 给et_phone添加文本变更监听器
-        et_phone.addTextChangedListener(new HideTextWatcher(et_phone, 11));
+        et_account.addTextChangedListener(new HideTextWatcher(et_account, 15));
         // 给et_password添加文本变更监听器
-        et_password.addTextChangedListener(new HideTextWatcher(et_password, 6));
-        btn_forget.setOnClickListener(this);
+        et_password.addTextChangedListener(new HideTextWatcher(et_password, 20));
+//        btn_forget.setOnClickListener(this);
         findViewById(R.id.btn_login).setOnClickListener(this);
         // 给密码编辑框注册一个焦点变化监听器，一旦焦点发生变化，就触发监听器的onFocusChange方法
 //        et_password.setOnFocusChangeListener(this);
@@ -94,7 +87,7 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
         public void onCheckedChanged(RadioGroup group, int checkedId) {
             tv_password.setText("登录密码：");
             et_password.setHint("请输入密码");
-            btn_forget.setText("忘记密码");
+//            btn_forget.setText("忘记密码");
             ck_remember.setVisibility(View.VISIBLE);
         }
     }
@@ -122,8 +115,7 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
         public void afterTextChanged(Editable s) {
             String str = s.toString(); // 获得已输入的文本字符串
             // 输入文本达到11位（如手机号码），或者达到6位（如登录密码）时关闭输入法
-            if ((str.length() == 11 && mMaxLength == 11)
-                    || (str.length() == 6 && mMaxLength == 6)) {
+            if ((str.length() == 11 && mMaxLength == 11) || (str.length() == 6 && mMaxLength == 6)) {
                 ViewUtil.hideOneInputMethod(LoginSQLiteActivity.this, mView); // 隐藏输入法软键盘
             }
         }
@@ -131,29 +123,29 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        String phone = et_phone.getText().toString();
+        String account = et_account.getText().toString();
         String pwd = et_password.getText().toString();
-        if (v.getId() == R.id.btn_forget) { // 点击了“忘记密码”按钮
-            if (phone.length() < 11) { // 手机号码不足11位
-                Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
+//        if (v.getId() == R.id.btn_forget) { // 点击了“忘记密码”按钮
+//            if (account.length() < 5) { // 账号不足5位
+//                Toast.makeText(this, "账号要长度大于5位且小于15位", Toast.LENGTH_SHORT).show();
+//            }
+//        } else
+        if (v.getId() == R.id.btn_login) { // 点击了“登录”按钮
+            if (account.length() < 5) { // 账号不足5位
+                Toast.makeText(this, "账号要长度大于5位且小于15位", Toast.LENGTH_SHORT).show();
                 return;
             }
-        } else if (v.getId() == R.id.btn_login) { // 点击了“登录”按钮
-            if (phone.length() < 11) { // 手机号码不足11位
-                Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            List<UserBean> userBeans = userDao.queryByAccount(phone);
+            List<UserBean> userBeans = userDao.queryByAccount(account);
             if (userBeans.isEmpty()) {
-                if (isRemember) {
+                if (isRegister) {
                     // 进行注册
-                    UserBean userBean = new UserBean(et_phone.getText().toString(), et_password.getText().toString());
+                    UserBean userBean = new UserBean(et_account.getText().toString(), et_password.getText().toString());
                     userDao.insert(userBean);
                     try {
                         loginSuccess(); // 提示用户登录成功
                         SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("phone", phone);
+                        editor.putString("account", account);
                         editor.apply();
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
@@ -162,7 +154,7 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
                     Toast.makeText(this, "用户不存在，请先注册", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                if (isRemember) {
+                if (isRegister) {
                     Toast.makeText(this, "用户已存在，请勿重复注册", Toast.LENGTH_SHORT).show();
                 } else {
                     for (UserBean userBean : userBeans) {
@@ -172,7 +164,7 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
                                 loginSuccess(); // 提示用户登录成功
                                 SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.putString("phone", phone);
+                                editor.putString("account", account);
                                 editor.apply();
                             } catch (SQLException e) {
                                 throw new RuntimeException(e);
@@ -231,14 +223,13 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
 
     // 校验通过，登录成功
     private void loginSuccess() throws SQLException {
-        String desc = String.format("您的手机号码是%s，恭喜你通过登录验证，点击“确定”按钮返回上个页面",
-                et_phone.getText().toString());
+        String desc = String.format("尊敬的用户：%s，欢迎您", et_account.getText().toString());
         // 以下弹出提醒对话框，提示用户登录成功
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("登录成功");
         builder.setMessage(desc);
-        builder.setPositiveButton("确定返回", (dialog, which) -> finish());
-        builder.setNegativeButton("我再看看", null);
+        builder.setPositiveButton("确定", (dialog, which) -> finish());
+//        builder.setNegativeButton("我再看看", null);
         AlertDialog alert = builder.create();
         alert.show();
         // 如果勾选了“记住密码”，则把手机号码和密码保存为数据库的用户表记录
