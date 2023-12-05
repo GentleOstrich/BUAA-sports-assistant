@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -30,9 +31,11 @@ import com.example.myapplication.util.ViewUtil;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @SuppressLint("DefaultLocale")
-public class LoginSQLiteActivity extends AppCompatActivity implements View.OnClickListener, OnFocusChangeListener {
+public class LoginSQLiteActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText et_phone; // 声明一个编辑框对象
     private TextView tv_password; // 声明一个文本视图对象
     private EditText et_password; // 声明一个编辑框对象
@@ -41,14 +44,14 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
 
     private int mRequestCode = 0; // 跳转页面时的请求代码
     private boolean isRemember = false; // 是否记住密码
-    private String mPassword = "111111"; // 默认密码
-//    private UserDBHelper mHelper; // 声明一个用户数据库的帮助器对象
-    private MdbHelper mdbHelper;
+    //    private String mPassword = "111111"; // 默认密码
+    //    private UserDBHelper mHelper; // 声明一个用户数据库的帮助器对象
+//    private MdbHelper mdbHelper;
     private UserDao userDao = null;
-    private TeamDao teamDao = null;
-    private Team2UserDao team2UserDao = null;
-    private SportsDao sportsDao = null;
-    private StrategyDao strategyDao = null;
+//    private TeamDao teamDao = null;
+//    private Team2UserDao team2UserDao = null;
+//    private SportsDao sportsDao = null;
+//    private StrategyDao strategyDao = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +74,7 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
         btn_forget.setOnClickListener(this);
         findViewById(R.id.btn_login).setOnClickListener(this);
         // 给密码编辑框注册一个焦点变化监听器，一旦焦点发生变化，就触发监听器的onFocusChange方法
-        et_password.setOnFocusChangeListener(this);
+//        et_password.setOnFocusChangeListener(this);
     }
 
     @Override
@@ -108,10 +111,12 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
         }
 
         // 在编辑框的输入文本变化前触发
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         // 在编辑框的输入文本变化时触发
-        public void onTextChanged(CharSequence s, int start, int before, int count) {}
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+        }
 
         // 在编辑框的输入文本变化后触发
         public void afterTextChanged(Editable s) {
@@ -127,6 +132,7 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         String phone = et_phone.getText().toString();
+        String pwd = et_password.getText().toString();
         if (v.getId() == R.id.btn_forget) { // 点击了“忘记密码”按钮
             if (phone.length() < 11) { // 手机号码不足11位
                 Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
@@ -137,13 +143,44 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
                 Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (!et_password.getText().toString().equals(mPassword)) {
-                Toast.makeText(this, "请输入正确的密码", Toast.LENGTH_SHORT).show();
-            } else { // 密码校验通过
-                try {
-                    loginSuccess(); // 提示用户登录成功
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
+            List<UserBean> userBeans = userDao.queryByAccount(phone);
+            if (userBeans.isEmpty()) {
+                if (isRemember) {
+                    // 进行注册
+                    UserBean userBean = new UserBean(et_phone.getText().toString(), et_password.getText().toString());
+                    userDao.insert(userBean);
+                    try {
+                        loginSuccess(); // 提示用户登录成功
+                        SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("phone", phone);
+                        editor.apply();
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                } else {
+                    Toast.makeText(this, "用户不存在，请先注册", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                if (isRemember) {
+                    Toast.makeText(this, "用户已存在，请勿重复注册", Toast.LENGTH_SHORT).show();
+                } else {
+                    for (UserBean userBean : userBeans) {
+                        if (Objects.equals(userBean.getPassword(), pwd)) {
+                            // 密码校验通过
+                            try {
+                                loginSuccess(); // 提示用户登录成功
+                                SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("phone", phone);
+                                editor.apply();
+                            } catch (SQLException e) {
+                                throw new RuntimeException(e);
+                            }
+                            return;
+                        }
+                    }
+                    Toast.makeText(this, "请输入正确密码", Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -155,7 +192,7 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == mRequestCode && data != null) {
             // 用户密码已改为新密码，故更新密码变量
-            mPassword = data.getStringExtra("new_password");
+//            mPassword = data.getStringExtra("new_password");
         }
     }
 
@@ -171,12 +208,12 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
         super.onResume();
 //        mHelper = UserDBHelper.getInstance(this, 1); // 获得用户数据库帮助器的实例
 //        mHelper.openWriteLink(); // 恢复页面，则打开数据库连接
-        mdbHelper = MdbHelper.getInstance(this); // 获得用户数据库帮助器的实例
+//        mdbHelper = MdbHelper.getInstance(this); // 获得用户数据库帮助器的实例
         userDao = new UserDao(this);
-        teamDao = new TeamDao(this);
-        team2UserDao = new Team2UserDao(this);
-        sportsDao = new SportsDao(this);
-        strategyDao = new StrategyDao(this);
+//        teamDao = new TeamDao(this);
+//        team2UserDao = new Team2UserDao(this);
+//        sportsDao = new SportsDao(this);
+//        strategyDao = new StrategyDao(this);
 //        mdbHelper.openWriteLink(); // 恢复页面，则打开数据库连接
     }
 
@@ -184,10 +221,10 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
     protected void onPause() {
         super.onPause();
         userDao = null;
-        teamDao = null;
-        team2UserDao = null;
-        sportsDao = null;
-        strategyDao = null;
+//        teamDao = null;
+//        team2UserDao = null;
+//        sportsDao = null;
+//        strategyDao = null;
 //        mdbHelper.closeLink(); // 暂停页面，则关闭数据库连接
 //        mdbHelper.closeLink(); // 暂停页面，则关闭数据库连接
     }
@@ -205,41 +242,31 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
         AlertDialog alert = builder.create();
         alert.show();
         // 如果勾选了“记住密码”，则把手机号码和密码保存为数据库的用户表记录
-        if (isRemember) {
-//            UserInfo info = new UserInfo(); // 创建一个用户信息对象
-//            info.phone = et_phone.getText().toString();
-//            info.password = et_password.getText().toString();
-//            info.update_time = DateUtil.getNowDateTime("yyyy-MM-dd HH:mm:ss");
-//            mHelper.insert(info); // 往用户数据库添加登录成功的用户信息
-//            mHelper.insert(info); // 往用户数据库添加登录成功的用户信息
-            UserBean userBean = new UserBean(et_phone.getText().toString(), et_password.getText().toString());
-            userDao.insert(userBean);
-        }
     }
 
     // 焦点变更事件的处理方法，hasFocus表示当前控件是否获得焦点。
     // 为什么光标进入密码框事件不选onClick？因为要点两下才会触发onClick动作（第一下是切换焦点动作）
-    @Override
-    public void onFocusChange(View v, boolean hasFocus) {
-        String phone = et_phone.getText().toString();
-        // 判断是否是密码编辑框发生焦点变化
-        if (v.getId() == R.id.et_password) {
-            // 用户已输入手机号码，且密码框获得焦点
-            if (phone.length() > 0 && hasFocus) {
-                ArrayList<UserBean> userBean = new ArrayList<>();
-                userBean.addAll(userDao.queryByAccount(phone));
-                if (!userBean.isEmpty()) {
-                    // 找到用户记录，则自动在密码框中填写该用户的密码
-                    et_password.setText(userBean.get(0).getPassword());
-                }
-                // 根据手机号码到数据库中查询用户记录
-//                UserInfo info = mHelper.queryByPhone(phone);
-//                if (info != null) {
+//    @Override
+//    public void onFocusChange(View v, boolean hasFocus) {
+//        String phone = et_phone.getText().toString();
+//        // 判断是否是密码编辑框发生焦点变化
+//        if (v.getId() == R.id.et_password) {
+//            // 用户已输入手机号码，且密码框获得焦点
+//            if (phone.length() > 0 && hasFocus) {
+//                ArrayList<UserBean> userBean = new ArrayList<>();
+//                userBean.addAll(userDao.queryByAccount(phone));
+//                if (!userBean.isEmpty()) {
 //                    // 找到用户记录，则自动在密码框中填写该用户的密码
-//                    et_password.setText(info.password);
+////                    et_password.setText(userBean.get(0).getPassword());
 //                }
-            }
-        }
-    }
+//                // 根据手机号码到数据库中查询用户记录
+////                UserInfo info = mHelper.queryByPhone(phone);
+////                if (info != null) {
+////                    // 找到用户记录，则自动在密码框中填写该用户的密码
+////                    et_password.setText(info.password);
+////                }
+//            }
+//        }
+//    }
 
 }

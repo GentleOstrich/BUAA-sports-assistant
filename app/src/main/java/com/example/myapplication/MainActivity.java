@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,6 +49,11 @@ public class MainActivity extends AppCompatActivity  {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("user", 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("phone");
+        editor.apply();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -106,7 +106,7 @@
             android:layout_height="wrap_content"
             android:checked="false"
             android:padding="10dp"
-            android:text="记住密码"
+            android:text="注册"
             android:textColor="@color/black"
             android:textSize="17sp" />
         <Button
