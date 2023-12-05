@@ -9,24 +9,28 @@ public class SportsBean {
     private int sportsId;
     @DatabaseField(canBeNull = false)
     private String type;
+    @DatabaseField(canBeNull = true)
+    private String dis;
+    @DatabaseField(canBeNull = false)
+    private String cal;
     @DatabaseField(canBeNull = false)
     private String time;
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
-    private UserBean usrId;
+    private UserBean usrBean;
 
     private static int cnt = 0;
-    public SportsBean(int sportsId, String type, String time, UserBean usrId) {
-        this.sportsId = sportsId;
+
+    public SportsBean(String type, String dis, String cal, String time, UserBean usrBean) {
+        this.sportsId = cnt++;
+        this.dis = dis;
+        this.cal = cal;
         this.type = type;
         this.time = time;
-        this.usrId = usrId;
+        this.usrBean = usrBean;
     }
 
     public SportsBean() {
         this.sportsId = cnt++;
-//        this.type = type;
-//        this.time = time;
-//        this.usrId = usrId;
     }
 
     public int getSportsId() {
@@ -53,11 +57,11 @@ public class SportsBean {
         this.time = time;
     }
 
-    public UserBean getUsrId() {
-        return usrId;
+    public UserBean getUsrBean() {
+        return usrBean;
     }
 
-    public void setUsrId(UserBean usrId) {
-        this.usrId = usrId;
+    public void setUsrBean(UserBean usrBean) {
+        this.usrBean = usrBean;
     }
 }

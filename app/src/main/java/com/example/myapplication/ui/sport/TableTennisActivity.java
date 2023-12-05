@@ -1,17 +1,10 @@
 package com.example.myapplication.ui.sport;
 
-import android.app.AlertDialog;
-import android.icu.text.SimpleDateFormat;
-import android.icu.util.TimeZone;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Chronometer;
-import android.widget.EditText;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -24,57 +17,28 @@ import com.example.myapplication.Bean.UserBean;
 import com.example.myapplication.Dao.SportsDao;
 import com.example.myapplication.Dao.UserDao;
 import com.example.myapplication.R;
-import com.example.myapplication.util.ViewUtil;
 
 import java.util.List;
-import com.example.myapplication.database.MdbHelper;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-
-public class RunActivity extends AppCompatActivity implements View.OnClickListener {
-    private EditText et_dis;
+public class TableTennisActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText et_cal;
     private EditText et_time;
     private Button btn_submit;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sport_run);
+        setContentView(R.layout.sport_tabletennis);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_back); //修改actionbar左上角返回按钮的图标
 
-        et_dis = findViewById(R.id.dis_run);
-        et_cal = findViewById(R.id.cal_run);
-        et_time = findViewById(R.id.time_run);
-        btn_submit = findViewById(R.id.btn_run);
+        et_cal = findViewById(R.id.cal_tabletennis);
+        et_time = findViewById(R.id.time_tabletennis);
+        btn_submit = findViewById(R.id.btn_tabletennis);
 
-        et_dis.addTextChangedListener(new HideTextWatcher());
         et_cal.addTextChangedListener(new HideTextWatcher());
         et_time.addTextChangedListener(new HideTextWatcher());
         btn_submit.setOnClickListener(this);
-
-        mdbHelper = MdbHelper.getInstance(this); // 获得用户数据库帮助器的实例
-
-//        findViewById(R.id.btn_commit).setOnClickListener(this);
-        initChronometer();
-    }
-
-    private void initChronometer() {
-        findViewById(R.id.btn_start).setOnClickListener(this);
-        findViewById(R.id.btn_start).setOnClickListener(this);
-        findViewById(R.id.btn_reset).setOnClickListener(this);
-        btn_start = findViewById(R.id.btn_start);
-        btn_stop = findViewById(R.id.btn_stop);
-        btn_reset = findViewById(R.id.btn_reset);
-        chronometer = findViewById(R.id.chronometer);
-        btn_start.setOnClickListener(this);
-        btn_stop.setOnClickListener(this);
-        btn_reset.setOnClickListener(this);
     }
 
     @Override
@@ -88,18 +52,14 @@ public class RunActivity extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    private MdbHelper mdbHelper;
-    private Button btn_start, btn_stop, btn_reset, btn_format_1;
-    private Chronometer chronometer, ch_format;
 
-    @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.btn_run) {
-            String dis = et_dis.getText().toString();
+        if (view.getId() == R.id.btn_tabletennis) {
+            String dis = "";
             String cal = et_cal.getText().toString();
             String time = et_time.getText().toString();
             String account = getSharedPreferences("user", MODE_PRIVATE).getString("account", "none");
-            if (dis.equals("") || cal.equals("") || time.equals("")) {
+            if (cal.equals("") || time.equals("")) {
                 Toast.makeText(this, "请输入正确运动记录", Toast.LENGTH_SHORT).show();
             } else {
                 if (!account.equals("none")) {
@@ -115,22 +75,6 @@ public class RunActivity extends AppCompatActivity implements View.OnClickListen
                     Toast.makeText(this, "请先登录", Toast.LENGTH_SHORT).show();
                 }
             }
-        } else if (view.getId() == R.id.btn_start)  {
-            //SystemClock.elapsedRealtime(),自启动以来经过的毫秒数。
-            //设置基准时间
-            long v = SystemClock.elapsedRealtime();
-            chronometer.setBase(SystemClock.elapsedRealtime());
-            //true,倒计时
-            chronometer.setCountDown(false);
-            chronometer.setFormat("%s");
-            //开始计时
-            chronometer.start();
-        } else if (view.getId() == R.id.btn_stop)  {
-            //结束计时
-            chronometer.stop();
-        } else if (view.getId() == R.id.btn_reset)  {
-            //重置基准时间
-            chronometer.setBase(SystemClock.elapsedRealtime());
         }
     }
 
@@ -153,5 +97,4 @@ public class RunActivity extends AppCompatActivity implements View.OnClickListen
 
         }
     }
-
 }
