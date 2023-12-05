@@ -21,12 +21,10 @@ public class TeamFragment extends Fragment implements View.OnClickListener {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        TeamViewModel teamViewModel =
-                new ViewModelProvider(this).get(TeamViewModel.class);
 
         binding = FragmentTeamBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        root.findViewById(R.id.btn_more).setOnClickListener(this);
+
         return root;
     }
 
@@ -39,8 +37,6 @@ public class TeamFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.btn_more) {
-            startActivity(new Intent(this.getContext(), MoreActivity.class));
-        }
+
     }
 }

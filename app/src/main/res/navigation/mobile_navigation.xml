@@ -18,8 +18,8 @@
         tools:layout="@layout/fragment_team" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.myapplication.ui.notifications.NotificationsFragment"
+        android:id="@+id/navigation_strategies"
+        android:name="com.example.myapplication.ui.notifications.StrategiesFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_strategies" />
 </navigation>
