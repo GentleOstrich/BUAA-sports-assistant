@@ -13,7 +13,8 @@ import com.example.myapplication.Bean.*;
 
 public class MdbHelper extends OrmLiteSqliteOpenHelper {
     // 数据库名字
-    private static final String TABLE_NAME = "ormlite-test.db";
+    private static final String DATABASE_NAME = "ormlite-test.db";
+    private static final int DATABASE_VERSION = 0;
 
     // 本类的单例实例
     private static MdbHelper instance;
@@ -27,15 +28,19 @@ public class MdbHelper extends OrmLiteSqliteOpenHelper {
     private Integer curUserId = null;
     // 构造函数，私有的外部不能直接访问
     private MdbHelper(Context context) {
-        super(context, TABLE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase database,
                          ConnectionSource connectionSource) {
         try {
-            // 通过TableUtils这个类新建User类对应的表
+            // 通过TableUtils这个类新建类对应的表
             TableUtils.createTable(connectionSource, UserBean.class);
+            TableUtils.createTable(connectionSource, SportsBean.class);
+            TableUtils.createTable(connectionSource, TeamBean.class);
+            TableUtils.createTable(connectionSource, Team2UserBean.class);
+            TableUtils.createTable(connectionSource, StrategyBean.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -48,6 +53,10 @@ public class MdbHelper extends OrmLiteSqliteOpenHelper {
         try {
             // 删除表
             TableUtils.dropTable(connectionSource, UserBean.class, true);
+            TableUtils.dropTable(connectionSource, SportsBean.class, true);
+            TableUtils.dropTable(connectionSource, TeamBean.class, true);
+            TableUtils.dropTable(connectionSource, Team2UserBean.class, true);
+            TableUtils.dropTable(connectionSource, StrategyBean.class, true);
             // 再建表
             onCreate(database, connectionSource);
         } catch (SQLException e) {

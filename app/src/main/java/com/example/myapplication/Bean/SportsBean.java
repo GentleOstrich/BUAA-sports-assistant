@@ -31,9 +31,6 @@ public class SportsBean {
 
     public SportsBean() {
         this.sportsId = cnt++;
-//        this.type = type;
-//        this.time = time;
-//        this.usrId = usrId;
     }
 
     public int getSportsId() {
