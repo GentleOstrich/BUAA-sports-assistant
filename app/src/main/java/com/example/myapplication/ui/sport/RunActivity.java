@@ -53,9 +53,9 @@ public class RunActivity extends AppCompatActivity implements View.OnClickListen
         et_time = findViewById(R.id.time_run);
         btn_submit = findViewById(R.id.btn_run);
 
-        et_dis.addTextChangedListener(new HideTextWatcher(et_dis, 10));
-        et_cal.addTextChangedListener(new HideTextWatcher(et_cal, 10));
-        et_time.addTextChangedListener(new HideTextWatcher(et_time, 10));
+        et_dis.addTextChangedListener(new HideTextWatcher());
+        et_cal.addTextChangedListener(new HideTextWatcher());
+        et_time.addTextChangedListener(new HideTextWatcher());
         btn_submit.setOnClickListener(this);
 
         mdbHelper = MdbHelper.getInstance(this); // 获得用户数据库帮助器的实例
@@ -136,13 +136,8 @@ public class RunActivity extends AppCompatActivity implements View.OnClickListen
 
     // 定义一个编辑框监听器，在输入文本达到指定长度时自动隐藏输入法
     private class HideTextWatcher implements TextWatcher {
-        private EditText mView; // 声明一个编辑框对象
-        private int mMaxLength; // 声明一个最大长度变量
-
-        public HideTextWatcher(EditText v, int maxLength) {
+        public HideTextWatcher() {
             super();
-            mView = v;
-            mMaxLength = maxLength;
         }
 
         // 在编辑框的输入文本变化前触发
@@ -155,12 +150,7 @@ public class RunActivity extends AppCompatActivity implements View.OnClickListen
 
         // 在编辑框的输入文本变化后触发
         public void afterTextChanged(Editable s) {
-            String str = s.toString(); // 获得已输入的文本字符串
-            // 输入文本达到11位（如手机号码），或者达到6位（如登录密码）时关闭输入法
-            if ((str.length() == 11 && mMaxLength == 11)
-                    || (str.length() == 6 && mMaxLength == 6)) {
-                ViewUtil.hideOneInputMethod(RunActivity.this, mView); // 隐藏输入法软键盘
-            }
+
         }
     }
 

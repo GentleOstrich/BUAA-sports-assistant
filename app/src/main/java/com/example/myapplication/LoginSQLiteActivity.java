@@ -61,9 +61,9 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
         // 给ck_remember设置勾选监听器
         ck_remember.setOnCheckedChangeListener((buttonView, isChecked) -> isRegister = isChecked);
         // 给et_phone添加文本变更监听器
-        et_account.addTextChangedListener(new HideTextWatcher(et_account, 15));
+        et_account.addTextChangedListener(new HideTextWatcher());
         // 给et_password添加文本变更监听器
-        et_password.addTextChangedListener(new HideTextWatcher(et_password, 20));
+        et_password.addTextChangedListener(new HideTextWatcher());
 //        btn_forget.setOnClickListener(this);
         findViewById(R.id.btn_login).setOnClickListener(this);
         // 给密码编辑框注册一个焦点变化监听器，一旦焦点发生变化，就触发监听器的onFocusChange方法
@@ -97,10 +97,8 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
         private EditText mView; // 声明一个编辑框对象
         private int mMaxLength; // 声明一个最大长度变量
 
-        public HideTextWatcher(EditText v, int maxLength) {
+        public HideTextWatcher() {
             super();
-            mView = v;
-            mMaxLength = maxLength;
         }
 
         // 在编辑框的输入文本变化前触发
@@ -113,11 +111,6 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
 
         // 在编辑框的输入文本变化后触发
         public void afterTextChanged(Editable s) {
-            String str = s.toString(); // 获得已输入的文本字符串
-            // 输入文本达到11位（如手机号码），或者达到6位（如登录密码）时关闭输入法
-            if ((str.length() == 11 && mMaxLength == 11) || (str.length() == 6 && mMaxLength == 6)) {
-                ViewUtil.hideOneInputMethod(LoginSQLiteActivity.this, mView); // 隐藏输入法软键盘
-            }
         }
     }
 
@@ -125,14 +118,12 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         String account = et_account.getText().toString();
         String pwd = et_password.getText().toString();
-//        if (v.getId() == R.id.btn_forget) { // 点击了“忘记密码”按钮
-//            if (account.length() < 5) { // 账号不足5位
-//                Toast.makeText(this, "账号要长度大于5位且小于15位", Toast.LENGTH_SHORT).show();
-//            }
-//        } else
         if (v.getId() == R.id.btn_login) { // 点击了“登录”按钮
-            if (account.length() < 5) { // 账号不足5位
+            if (account.length() < 5 || account.length() > 15) { // 账号不足5位
                 Toast.makeText(this, "账号要长度大于5位且小于15位", Toast.LENGTH_SHORT).show();
+                return;
+            } else if (pwd.length() < 5 || pwd.length() > 20) {
+                Toast.makeText(this, "密码要长度大于5位且小于20位", Toast.LENGTH_SHORT).show();
                 return;
             }
             List<UserBean> userBeans = userDao.queryByAccount(account);

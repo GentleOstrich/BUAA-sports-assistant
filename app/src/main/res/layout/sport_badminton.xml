@@ -4,16 +4,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30sp"
         android:text="消耗卡路里(cal)："
         android:textColor="@color/gray"
+        android:textStyle="bold"
         android:textSize="20sp"></TextView>
 
     <EditText
+        android:id="@+id/cal_badminton"
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_marginBottom="50sp"
@@ -27,9 +27,11 @@
         android:layout_height="30sp"
         android:text="运动时间"
         android:textColor="@color/gray"
+        android:textStyle="bold"
         android:textSize="20sp"></TextView>
 
     <EditText
+        android:id="@+id/time_badminton"
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_marginBottom="50sp"
@@ -39,6 +41,7 @@
         android:textColorHint="#95A1AA"></EditText>
 
     <Button
+        android:id="@+id/btn_badminton"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_gravity="center"
@@ -46,8 +49,8 @@
         android:background="@drawable/round_corners_bg"
         android:text="提交"
         android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textColorHighlight="@color/gray"
+        android:textColor="@color/gray"
+        android:textStyle="bold"
         android:textSize="17sp" /> <!-- 按钮后续可以加圆角样式 -->
 
 </LinearLayout>

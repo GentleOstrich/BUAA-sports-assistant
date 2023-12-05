@@ -4,8 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30sp"
@@ -14,6 +12,7 @@
         android:textSize="20sp"></TextView>
 
     <EditText
+        android:id="@+id/cal_basketball"
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_marginBottom="50sp"
@@ -30,6 +29,7 @@
         android:textSize="20sp"></TextView>
 
     <EditText
+        android:id="@+id/time_basketball"
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_marginBottom="50sp"
@@ -39,6 +39,7 @@
         android:textColorHint="#95A1AA"></EditText>
 
     <Button
+        android:id="@+id/btn_basketball"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_gravity="center"

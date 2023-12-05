@@ -11,8 +11,8 @@
         android:layout_height="30sp"
         android:text="跑步距离(m)："
         android:textColor="@color/gray"
-        android:textStyle="bold"
-        android:textSize="20sp"></TextView>
+        android:textSize="20sp"
+        android:textStyle="bold"></TextView>
 
     <EditText
         android:id="@+id/dis_run"
@@ -22,16 +22,15 @@
         android:background="@drawable/round_corners_bg"
         android:hint="请输入跑步距离"
         android:inputType="number"
-        android:textColorHint="#95A1AA"
-        ></EditText>
+        android:textColorHint="#95A1AA"></EditText>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30sp"
         android:text="消耗卡路里(cal)："
         android:textColor="@color/gray"
-        android:textStyle="bold"
-        android:textSize="20sp"></TextView>
+        android:textSize="20sp"
+        android:textStyle="bold"></TextView>
 
     <EditText
         android:id="@+id/cal_run"
@@ -48,8 +47,8 @@
         android:layout_height="30sp"
         android:text="跑步时间"
         android:textColor="@color/gray"
-        android:textStyle="bold"
-        android:textSize="20sp"></TextView>
+        android:textSize="20sp"
+        android:textStyle="bold"></TextView>
 
     <EditText
         android:id="@+id/time_run"
@@ -65,34 +64,44 @@
         android:id="@+id/chronometer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#ff0303"
-        android:textSize="12pt"
         android:layout_gravity="center_horizontal"
-        android:focusable="true" />
+        android:focusable="true"
+        android:textColor="@color/slategray"
+        android:textSize="50sp" />
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
         <Button
             android:id="@+id/btn_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="启动!"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/round_corners_bg"
+            android:layout_margin="2sp"
+            android:text="启动!" />
+
         <Button
             android:id="@+id/btn_stop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="结束"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/round_corners_bg"
+            android:layout_margin="2sp"
+            android:text="结束" />
+
         <Button
             android:id="@+id/btn_reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="重置"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/round_corners_bg"
+            android:layout_margin="2sp"
+            android:text="重置" />
 
     </LinearLayout>
 
@@ -104,9 +113,9 @@
         android:layout_marginTop="90sp"
         android:background="@drawable/round_corners_bg"
         android:text="提交"
-        android:textStyle="bold"
         android:textAllCaps="false"
         android:textColor="@color/gray"
-        android:textSize="17sp" /> <!-- 按钮后续可以加圆角样式 -->
+        android:textSize="17sp"
+        android:textStyle="bold" /> <!-- 按钮后续可以加圆角样式 -->
 
 </LinearLayout>
