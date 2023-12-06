@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,25 +15,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.myapplication.Bean.SportsBean;
 import com.example.myapplication.Bean.StrategyBean;
 import com.example.myapplication.Bean.UserBean;
-import com.example.myapplication.Dao.SportsDao;
 import com.example.myapplication.Dao.StrategyDao;
 import com.example.myapplication.Dao.UserDao;
 import com.example.myapplication.R;
-import com.example.myapplication.ui.sport.BasketballActivity;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
-public class StrategyActivity extends AppCompatActivity implements View.OnClickListener {
+public class StrategyCreate extends AppCompatActivity implements View.OnClickListener {
     // 用于发布一个攻略
 
     private EditText et_title;

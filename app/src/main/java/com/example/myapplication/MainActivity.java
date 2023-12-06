@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.myapplication.database.MdbHelper;
-import com.example.myapplication.ui.notifications.StrategyActivity;
+import com.example.myapplication.ui.notifications.StrategyCreate;
 import com.example.myapplication.ui.team.TeamCreate;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 3:
                 // 创建一个攻略
-                startActivity(new Intent(this, StrategyActivity.class));
+                startActivity(new Intent(this, StrategyCreate.class));
                 break;
             case 4:
                 if (!account.equals("none")) {
