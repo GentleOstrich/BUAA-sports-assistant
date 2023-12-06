@@ -25,7 +25,9 @@ import com.example.myapplication.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class StrategyCreate extends AppCompatActivity implements View.OnClickListener {
     // 用于发布一个攻略
@@ -93,12 +95,13 @@ public class StrategyCreate extends AppCompatActivity implements View.OnClickLis
             String account = getSharedPreferences("user", MODE_PRIVATE).getString("account", "none");
             if (title.equals("") || content.equals("")) {
                 Toast.makeText(this, "请勿提交空的攻略", Toast.LENGTH_SHORT).show();
+            } else if (checkSensitiveWords(content)) {
+                Toast.makeText(this, "包含敏感词", Toast.LENGTH_SHORT).show();
             } else {
                 if (!account.equals("none")) {
                     UserDao userDao = new UserDao(this);
                     List<UserBean> userBeans = userDao.queryByAccount(account);
                     for (UserBean userBean : userBeans) {
-
                         StrategyBean strategyBean = new StrategyBean(title, content, null, userBean);
                         if (hasImage) {
                             strategyBean.setImage(image_tmp);
@@ -112,6 +115,19 @@ public class StrategyCreate extends AppCompatActivity implements View.OnClickLis
                 }
             }
         }
+    }
+
+
+    private boolean checkSensitiveWords(String content) {
+        Set<String> sensitiveWordSet = new HashSet<>();
+
+        sensitiveWordSet.add("fuck");
+
+
+
+
+        SensitiveWordsUtils.init(sensitiveWordSet);
+        return SensitiveWordsUtils.contains(content);
     }
 
     @Override
