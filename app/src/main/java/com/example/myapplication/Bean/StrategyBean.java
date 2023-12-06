@@ -1,5 +1,7 @@
 package com.example.myapplication.Bean;
 
+import android.net.Uri;
+
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -11,22 +13,27 @@ public class StrategyBean {
     private String title;
     @DatabaseField(canBeNull = false)
     private String content;
+
+    @DatabaseField(canBeNull = true)
+    private String image;
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
     private UserBean publisherId;
 
     private static int cnt = 0;
 
-    public StrategyBean(int id, String title, String content, UserBean publisherId) {
+    public StrategyBean(int id, String title, String content, String image, UserBean publisherId) {
         this.id = id;
         this.title = title;
         this.content = content;
+        this.image = image;
         this.publisherId = publisherId;
     }
 
-    public StrategyBean(String title, String content, UserBean publisherId) {
+    public StrategyBean(String title, String content, String image, UserBean publisherId) {
         this.id = cnt++;
         this.title = title;
         this.content = content;
+        this.image = image;
         this.publisherId = publisherId;
     }
 
@@ -60,6 +67,14 @@ public class StrategyBean {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public UserBean getPublisherId() {

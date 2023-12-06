@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:text="攻略主题"
+        android:textColor="@color/gray"
+        android:textSize="20sp"></TextView>
+
+    <EditText
+        android:id="@+id/title_strategy"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_marginBottom="50sp"
+        android:background="@drawable/round_corners_bg"
+        android:hint="请输入攻略主题："
+        android:inputType="text"
+        android:textColorHint="#95A1AA"></EditText>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:text="攻略内容"
+        android:textColor="@color/gray"
+        android:textSize="20sp"></TextView>
+
+    <EditText
+        android:id="@+id/content_strategy"
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        android:layout_marginBottom="25sp"
+        android:background="@drawable/round_corners_bg"
+        android:hint="请输入内容"
+        android:inputType="text"
+        android:textColorHint="#95A1AA"></EditText>
+
+    <Button
+        android:id="@+id/btn_image_strategy"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="0sp"
+        android:background="@drawable/round_corners_bg"
+        android:text="上传图片"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textColorHighlight="@color/gray"
+        android:textSize="17sp" /> <!-- 按钮后续可以加圆角样式 -->
+
+    <Button
+        android:id="@+id/btn_submit_strategy"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100sp"
+        android:background="@drawable/round_corners_bg"
+        android:text="提交"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textColorHighlight="@color/gray"
+        android:textSize="17sp" /> <!-- 按钮后续可以加圆角样式 -->
+
+
+</LinearLayout>
