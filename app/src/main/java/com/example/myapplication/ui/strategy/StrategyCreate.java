@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.util.Base64;
 
 import com.example.myapplication.Bean.StrategyBean;
 import com.example.myapplication.Bean.UserBean;
@@ -124,8 +125,6 @@ public class StrategyCreate extends AppCompatActivity implements View.OnClickLis
         sensitiveWordSet.add("fuck");
 
 
-
-
         SensitiveWordsUtils.init(sensitiveWordSet);
         return SensitiveWordsUtils.contains(content);
     }
@@ -144,7 +143,7 @@ public class StrategyCreate extends AppCompatActivity implements View.OnClickLis
                 }
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                image_tmp = new String(stream.toByteArray());
+                image_tmp = new String(Base64.encodeToString(stream.toByteArray(), Base64.DEFAULT));
                 hasImage = true;
             }
         }
