@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -192,6 +194,7 @@
                         android:background="@color/white"></ImageButton>
 
                     <ImageButton
+                        android:id="@+id/recommend"
                         android:layout_width="200dp"
                         android:layout_height="200dp"
                         android:layout_weight="1"

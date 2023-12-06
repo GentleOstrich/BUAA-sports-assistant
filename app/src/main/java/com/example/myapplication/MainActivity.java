@@ -18,6 +18,7 @@ import com.example.myapplication.databinding.ActivityMainBinding;
 import com.example.myapplication.ui.strategy.StrategyCreate;
 import com.example.myapplication.ui.team.TeamCreate;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.qweather.sdk.view.HeConfig;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         MdbHelper mdbHelper = MdbHelper.getInstance(this);
         SQLiteDatabase db = mdbHelper.getWritableDatabase();
 
+        HeConfig.init("HE2312061600251329", "e1c3ddb7b84d486581e741e98490c487");
+        HeConfig.switchToDevService();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -127,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
 
 
 }
