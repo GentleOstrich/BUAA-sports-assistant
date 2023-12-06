@@ -2,10 +2,12 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.myapplication.database.MdbHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,10 +47,9 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("user", 0);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove("account");
-        editor.apply();
+        MdbHelper mdbHelper = MdbHelper.getInstance(this);
+        SQLiteDatabase db = mdbHelper.getWritableDatabase();
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

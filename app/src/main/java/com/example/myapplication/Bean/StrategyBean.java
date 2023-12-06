@@ -15,12 +15,21 @@ public class StrategyBean {
     private UserBean publisherId;
 
     private static int cnt = 0;
+
     public StrategyBean(int id, String title, String content, UserBean publisherId) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.publisherId = publisherId;
     }
+
+    public StrategyBean(String title, String content, UserBean publisherId) {
+        this.id = cnt++;
+        this.title = title;
+        this.content = content;
+        this.publisherId = publisherId;
+    }
+
 
     public StrategyBean() {
         this.id = cnt++;
