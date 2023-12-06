@@ -13,10 +13,10 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".ui.notifications.StrategyCreate"
+            android:name=".ui.team.TeamInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.team.TeamInfoActivity"
+            android:name=".ui.strategy.StrategyInfo"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -88,6 +88,10 @@
             android:name=".ui.team.TeamCreate"
             android:exported="false"
             android:label="发布组局"/>
+        <activity
+            android:name=".ui.strategy.StrategyCreate"
+            android:exported="false"
+            android:label="发布攻略" />
     </application>
 
 </manifest>

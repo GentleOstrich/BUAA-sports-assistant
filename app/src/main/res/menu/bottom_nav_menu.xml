@@ -12,8 +12,8 @@
         android:title="@string/title_team" />
 
     <item
-        android:id="@+id/navigation_strategies"
+        android:id="@+id/navigation_strategy"
         android:icon="@drawable/ic_strategy"
-        android:title="@string/title_notifications" />
+        android:title="攻略" />
 
 </menu>

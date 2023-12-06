@@ -7,18 +7,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.myapplication.database.MdbHelper;
-import com.example.myapplication.ui.notifications.StrategyCreate;
-import com.example.myapplication.ui.team.TeamCreate;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.myapplication.database.MdbHelper;
 import com.example.myapplication.databinding.ActivityMainBinding;
+import com.example.myapplication.ui.strategy.StrategyCreate;
+import com.example.myapplication.ui.team.TeamCreate;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_team, R.id.navigation_strategies)
+                R.id.navigation_home, R.id.navigation_team, R.id.navigation_strategy)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -114,8 +113,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case 3:
-                // 创建一个攻略
-                startActivity(new Intent(this, StrategyCreate.class));
+                if (account.equals("none")) {
+                    startActivity(new Intent(this, LoginSQLiteActivity.class));
+                } else {
+                    startActivity(new Intent(this, StrategyCreate.class));
+                }
                 break;
             case 4:
                 if (!account.equals("none")) {
