@@ -2,6 +2,7 @@ package com.example.myapplication.ui.team;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,13 +42,18 @@ public class TeamFragment extends Fragment {
         TeamDao teamDao = new TeamDao(this.getContext());
         List<TeamBean> teamlist = null;
         teamlist = teamDao.queryAll();
-//        UserBean u = new UserBean("user","user");
-//        SportsBean s = new SportsBean(0,"sport","start",u);
-//        TeamBean t = new TeamBean(0,s,u);
         if(teamlist==null) teamlist=new ArrayList<>();
         TeamAdapter adapter=new TeamAdapter(this.getContext(),R.layout.team_item,teamlist);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        TeamBean teamBean = (TeamBean) listView.getItemAtPosition(i);
 
+                    }
+                }
+        );
         return root;
     }
 
