@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.notifications;
+package com.example.myapplication.ui.strategy;
 
 import java.util.HashMap;
 import java.util.HashSet;
