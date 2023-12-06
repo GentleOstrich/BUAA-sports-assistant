@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.myapplication.database.MdbHelper;
+import com.example.myapplication.ui.team.TeamCreate;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -105,7 +106,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case 2:
-
+                if (account.equals("none")) {
+                    startActivity(new Intent(this, LoginSQLiteActivity.class));
+                } else {
+                    startActivity(new Intent(this, TeamCreate.class));
+                }
                 break;
             case 3:
                 break;

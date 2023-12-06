@@ -27,11 +27,15 @@ public class TeamAdapter extends ArrayAdapter<TeamBean> {
         View view=LayoutInflater.from(getContext()).inflate(R.layout.team_item,parent,false);
         //分别获取 image view 和 textview 的实例
 
-        TextView teamsport=view.findViewById(R.id.team_sport);
-        TextView teamorganizer=view.findViewById(R.id.team_organizer);
+        TextView teamsport = view.findViewById(R.id.team_sport);
+        TextView teamorganizer = view.findViewById(R.id.team_organizer);
+        TextView teamtime = view.findViewById(R.id.team_time);
+        TextView teamlocation = view.findViewById(R.id.team_location);
         // 设置要显示的图片和文字
-        teamsport.setText(teamBean.getSportsId().getType());
+        teamsport.setText(teamBean.getSport());
         teamorganizer.setText(teamBean.getOrganizerId().getAccount());
+        teamtime.setText(teamBean.getTime());
+        teamlocation.setText(teamBean.getLocation());
         return view;
     }
 }
