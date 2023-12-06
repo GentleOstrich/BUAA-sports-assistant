@@ -16,6 +16,9 @@
             android:name=".ui.notifications.StrategyCreate"
             android:exported="false" />
         <activity
+            android:name=".ui.team.TeamInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">

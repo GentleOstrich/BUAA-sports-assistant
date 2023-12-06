@@ -5,7 +5,7 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "team2user")
 public class Team2UserBean {
-    @DatabaseField
+    @DatabaseField(generatedId = true)
     private int id;
 
     // 复合主键
@@ -15,8 +15,8 @@ public class Team2UserBean {
     private UserBean participant;
 
     private static int cnt = 0;
-    public Team2UserBean(int id, TeamBean gameId, UserBean participantId) {
-        this.id = id;
+    public Team2UserBean(TeamBean gameId, UserBean participantId) {
+        this.id = cnt++;
         this.team = gameId;
         this.participant = participantId;
     }

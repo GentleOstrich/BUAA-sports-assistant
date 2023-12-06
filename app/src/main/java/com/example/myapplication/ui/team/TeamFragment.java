@@ -21,6 +21,7 @@ import com.example.myapplication.Bean.SportsBean;
 import com.example.myapplication.Bean.TeamBean;
 import com.example.myapplication.Bean.UserBean;
 import com.example.myapplication.Dao.TeamDao;
+import com.example.myapplication.LoginSQLiteActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentTeamBinding;
 import com.example.myapplication.ui.sport.MoreActivity;
@@ -28,7 +29,7 @@ import com.example.myapplication.ui.sport.MoreActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeamFragment extends Fragment {
+public class TeamFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     private FragmentTeamBinding binding;
     private ListView listView;
@@ -38,23 +39,23 @@ public class TeamFragment extends Fragment {
 
         binding = FragmentTeamBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        listView=root.findViewById(R.id.team_list_view);
+        listView = root.findViewById(R.id.team_list_view);
         TeamDao teamDao = new TeamDao(this.getContext());
         List<TeamBean> teamlist = null;
         teamlist = teamDao.queryAll();
-        if(teamlist==null) teamlist=new ArrayList<>();
-        TeamAdapter adapter=new TeamAdapter(this.getContext(),R.layout.team_item,teamlist);
+        if (teamlist == null) teamlist = new ArrayList<>();
+        TeamAdapter adapter = new TeamAdapter(this.getContext(), R.layout.team_item, teamlist);
         listView.setAdapter(adapter);
-        listView.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        TeamBean teamBean = (TeamBean) listView.getItemAtPosition(i);
-
-                    }
-                }
-        );
+        listView.setOnItemClickListener(this::onItemClick);
         return root;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+        TeamBean teamBean = (TeamBean) listView.getItemAtPosition(position);
+        Intent i = new Intent(this.getContext(), TeamInfoActivity.class);
+        i.putExtra("data", teamBean.getTeamId());
+        startActivity(i);
     }
 
     @Override

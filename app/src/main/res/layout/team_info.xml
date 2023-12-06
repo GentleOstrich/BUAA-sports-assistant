@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="运动："></TextView>
+
+            <TextView
+                android:id="@+id/team_info_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sport"></TextView>
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="成员："></TextView>
+
+<!--        <ScrollView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+            <ListView
+                android:id="@+id/team_member_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></ListView>
+
+<!--        </ScrollView>-->
+
+
+        <Button
+            android:id="@+id/team_info_join_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加入组局"></Button>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
