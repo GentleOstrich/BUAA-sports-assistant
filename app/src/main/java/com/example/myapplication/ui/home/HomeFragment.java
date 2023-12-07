@@ -65,6 +65,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         root.findViewById(R.id.btn_td).setOnClickListener(this);
         root.findViewById(R.id.btn_more).setOnClickListener(this);
         root.findViewById(R.id.recommend).setOnClickListener(this);
+        root.findViewById(R.id.calories).setOnClickListener(this);
+        root.findViewById(R.id.plan).setOnClickListener(this);
         return root;
     }
 
@@ -97,6 +99,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             intent = new Intent(this.getContext(), MoreActivity.class);
         } else if (view.getId() == R.id.recommend) {
             intent = new Intent(this.getContext(), RecommendActivity.class);
+        } else if (view.getId() == R.id.plan) {
+            intent = new Intent(this.getContext(), PlanActivity.class);
+        } else if (view.getId() == R.id.calories) {
+            intent = new Intent(this.getContext(), CaloriesActivity.class);
         }
         startActivity(intent);
     }
