@@ -35,8 +35,6 @@ public class RecommendActivity extends AppCompatActivity {
     private TextView fengli;
     private TextView fengxiang;
     private TextView sport;
-
-    private String tianqi;
     private HashSet<String> indoorSports = new HashSet<>();
 
     private HashSet<String> outdoorSports = new HashSet<>();
@@ -87,7 +85,7 @@ public class RecommendActivity extends AppCompatActivity {
     }
 
     public void queryWeather() {
-        QWeather.getWeatherNow(RecommendActivity.this, "CN101280603", Lang.ZH_HANS, Unit.METRIC, new QWeather.OnResultWeatherNowListener() {
+        QWeather.getWeatherNow(RecommendActivity.this, "CN101010100", Lang.ZH_HANS, Unit.METRIC, new QWeather.OnResultWeatherNowListener() {
             public static final String TAG = "he_feng_now";
 
             @Override
@@ -105,11 +103,11 @@ public class RecommendActivity extends AppCompatActivity {
                 //先判断返回的status是否正确，当status正确时获取数据，若status不正确，可查看status对应的Code值找到原因
                 if (Code.OK == weatherBean.getCode()) {
                     WeatherNowBean.NowBaseBean now = weatherBean.getNow();
-                    tianqi = now.getText();
+                    String tianqi1 = now.getText();
                     String wendu1 = now.getTemp() + "℃";
                     String fengli1 = now.getWindScale();
                     String fengxiang1 = now.getWindDir();
-                    weather.setText(tianqi);
+                    weather.setText(tianqi1);
                     wendu.setText(wendu1);
                     fengli.setText(fengli1);
                     fengxiang.setText(fengxiang1);
@@ -125,7 +123,14 @@ public class RecommendActivity extends AppCompatActivity {
 
 
     private void sort() {
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        String tianqi = weather.getText().toString();
         String account = getSharedPreferences("user", MODE_PRIVATE).getString("account", "none");
+
         if (!account.equals("none")) {
             Toast.makeText(this, "查询到您的活动历史记录", Toast.LENGTH_SHORT).show();
             SportsDao sportsDao = new SportsDao(this);
@@ -158,7 +163,7 @@ public class RecommendActivity extends AppCompatActivity {
                         }
                         cnt++;
                         tmp.append(entry.getKey());
-                        if (cnt > 3) {
+                        if (cnt >= 3) {
                             break;
                         }
                     }
@@ -175,7 +180,7 @@ public class RecommendActivity extends AppCompatActivity {
                         }
                         cnt++;
                         tmp.append(entry.getKey());
-                        if (cnt > 3) {
+                        if (cnt >= 3) {
                             break;
                         }
                     }
