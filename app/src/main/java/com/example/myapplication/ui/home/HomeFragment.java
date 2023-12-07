@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.myapplication.PlanActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.RecommendActivity;
 import com.example.myapplication.databinding.FragmentHomeBinding;
@@ -63,6 +64,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         root.findViewById(R.id.btn_td).setOnClickListener(this);
         root.findViewById(R.id.btn_more).setOnClickListener(this);
         root.findViewById(R.id.recommend).setOnClickListener(this);
+        root.findViewById(R.id.plan).setOnClickListener(this);
         return root;
     }
 
@@ -95,6 +97,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             intent = new Intent(this.getContext(), MoreActivity.class);
         } else if (view.getId() == R.id.recommend) {
             intent = new Intent(this.getContext(), RecommendActivity.class);
+        } else if (view.getId() == R.id.plan) {
+            intent = new Intent(this.getContext(), PlanActivity.class);
         }
         startActivity(intent);
     }
