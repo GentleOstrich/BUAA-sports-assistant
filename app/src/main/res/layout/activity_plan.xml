@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PlanActivity">
+    tools:context=".PlanActivity"
+    android:layout_margin="10dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -19,7 +20,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="今天是："
+                android:text=""
                 android:textSize="25dp"></TextView>
 
             <TextView
@@ -27,6 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:fontFamily="serif"
                 android:text="xxx"
                 android:textSize="25dp"
                 android:textStyle="bold"
@@ -43,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:text="为您推荐的健身计划是："
+                android:fontFamily="serif"
                 android:textSize="20dp"
                 android:textStyle="bold"></TextView>
         </LinearLayout>
@@ -52,9 +55,11 @@
             android:layout_height="wrap_content">
 
             <TextView
+
                 android:id="@+id/plan_plan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="xxx"
                 android:textSize="16dp"
                 android:textStyle="bold"></TextView>

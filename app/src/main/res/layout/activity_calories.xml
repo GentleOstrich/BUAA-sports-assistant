@@ -2,244 +2,325 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="五谷类"
-            />
-
-        <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:entries="@array/food1"
-            android:background="@drawable/round_corners_bg"
-            android:spinnerMode="dialog" />
-    </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="肉类"
-
-            />
-
-        <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:entries="@array/food2"
-            android:background="@drawable/round_corners_bg"
-            android:spinnerMode="dialog" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="调味料"
-
-            />
-
-        <Spinner
-            android:id="@+id/spinner3"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:entries="@array/food3"
-            android:background="@drawable/round_corners_bg"
-            android:spinnerMode="dialog" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="饮品"
-
-            />
-
-        <Spinner
-            android:id="@+id/spinner4"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:entries="@array/food4"
-            android:background="@drawable/round_corners_bg"
-            android:spinnerMode="dialog" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="海产"
-
-            />
-
-        <Spinner
-            android:id="@+id/spinner5"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:entries="@array/food5"
-            android:background="@drawable/round_corners_bg"
-            android:spinnerMode="dialog" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="甜品"
-
-            />
-
-        <Spinner
-            android:id="@+id/spinner6"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:entries="@array/food6"
-            android:background="@drawable/round_corners_bg"
-            android:spinnerMode="dialog" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="蔬菜"
-
-            />
-
-        <Spinner
-            android:id="@+id/spinner7"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:entries="@array/food7"
-            android:background="@drawable/round_corners_bg"
-            android:spinnerMode="dialog" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="快餐"
-
-            />
-
-        <Spinner
-            android:id="@+id/spinner8"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:entries="@array/food8"
-            android:background="@drawable/round_corners_bg"
-            android:spinnerMode="dialog" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="水果"
-
-            />
-
-        <Spinner
-            android:id="@+id/spinner9"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:entries="@array/food9"
-            android:background="@drawable/round_corners_bg"
-            android:spinnerMode="dialog" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="面包"
-
-            />
-
-        <Spinner
-            android:id="@+id/spinner10"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:entries="@array/food10"
-            android:background="@drawable/round_corners_bg"
-            android:spinnerMode="dialog" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="数量"
-            />
-
-        <EditText
-            android:id="@+id/calories_num"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_corners_bg"
-            android:hint="请输入数量"
-            android:inputType="number"/>
-
-    </LinearLayout>
-
-
-
-    <Button
-        android:id="@+id/btn_cal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="计算"/>
-
-    <TextView
-        android:id="@+id/calories_result"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="30dp"
-        android:text="---"/>
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="serif"
+                android:text="谷类"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/round_corners_bg"
+                android:entries="@array/food1"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="serif"
+                android:text="肉类"
+                android:textSize="18dp"
+                android:textStyle="bold"
+
+                />
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/round_corners_bg"
+                android:entries="@array/food2"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="serif"
+                android:text="调料"
+                android:textSize="18dp"
+                android:textStyle="bold"
+
+                />
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/round_corners_bg"
+                android:entries="@array/food3"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="serif"
+                android:text="饮品"
+                android:textSize="18dp"
+                android:textStyle="bold"
+
+                />
+
+            <Spinner
+                android:id="@+id/spinner4"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/round_corners_bg"
+                android:entries="@array/food4"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="serif"
+                android:text="海产"
+                android:textSize="18dp"
+                android:textStyle="bold"
+
+                />
+
+            <Spinner
+                android:id="@+id/spinner5"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/round_corners_bg"
+                android:entries="@array/food5"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="serif"
+                android:text="甜品"
+                android:textSize="18dp"
+                android:textStyle="bold"
+
+                />
+
+            <Spinner
+                android:id="@+id/spinner6"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/round_corners_bg"
+                android:entries="@array/food6"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="serif"
+                android:text="蔬菜"
+                android:textSize="18dp"
+                android:textStyle="bold"
+
+                />
+
+            <Spinner
+                android:id="@+id/spinner7"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/round_corners_bg"
+                android:entries="@array/food7"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="serif"
+                android:text="快餐"
+                android:textSize="18dp"
+                android:textStyle="bold"
+
+                />
+
+            <Spinner
+                android:id="@+id/spinner8"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/round_corners_bg"
+                android:entries="@array/food8"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="serif"
+                android:text="水果"
+                android:textSize="18dp"
+                android:textStyle="bold"
+
+                />
+
+            <Spinner
+                android:id="@+id/spinner9"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/round_corners_bg"
+                android:entries="@array/food9"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="serif"
+                android:text="面包"
+                android:textSize="18dp"
+                android:textStyle="bold"
+
+                />
+
+            <Spinner
+                android:id="@+id/spinner10"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/round_corners_bg"
+                android:entries="@array/food10"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="serif"
+                android:text="数量"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/calories_num"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/round_corners_bg"
+                android:hint="请输入数量"
+                android:inputType="number" />
+
+        </LinearLayout>
 
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btn_cal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="serif"
+            android:text="计算" />
+
+        <TextView
+            android:id="@+id/calories_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:text="--->"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
 </ScrollView>
