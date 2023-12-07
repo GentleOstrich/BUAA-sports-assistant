@@ -37,6 +37,8 @@ public class RecommendActivity extends AppCompatActivity {
     private TextView sport;
     private HashSet<String> indoorSports = new HashSet<>();
 
+    private HashSet<String> outdoorWeather = new HashSet<>();
+
     private HashSet<String> outdoorSports = new HashSet<>();
 
     @Override
@@ -70,6 +72,11 @@ public class RecommendActivity extends AppCompatActivity {
         outdoorSports.add("网球");
         outdoorSports.add("跑步");
         outdoorSports.add("td");
+
+        outdoorWeather.add("晴");
+        outdoorWeather.add("多云");
+        outdoorWeather.add("少云");
+        outdoorWeather.add("晴间多云");
     }
 
 
@@ -155,7 +162,7 @@ public class RecommendActivity extends AppCompatActivity {
             });
             StringBuilder tmp = new StringBuilder();
             int cnt = 0;
-            if (Objects.equals(tianqi, "晴")) {
+            if (outdoorWeather.contains(tianqi)) {
                 for (Map.Entry<String, Integer> entry : entryList) {
                     if (outdoorSports.contains(entry.getKey())) {
                         if (cnt == 0) {
@@ -194,7 +201,7 @@ public class RecommendActivity extends AppCompatActivity {
             sport.setText(tmp.toString());
         } else {
             Toast.makeText(this, "未查询到您的活动历史记录", Toast.LENGTH_SHORT).show();
-            if (Objects.equals(tianqi, "晴")) {
+            if (outdoorWeather.contains(tianqi)) {
                 sport.setText("户外运动，例如跑步");
             } else {
                 sport.setText("室内运动，例如游泳");
