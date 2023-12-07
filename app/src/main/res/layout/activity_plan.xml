@@ -19,13 +19,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="今天是："></TextView>
+                android:text="今天是："
+                android:textSize="25dp"></TextView>
 
             <TextView
                 android:id="@+id/plan_weekday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:text="xxx"
+                android:textSize="25dp"
+                android:textStyle="bold"
                 tools:ignore="DuplicateIds"></TextView>
 
         </LinearLayout>
@@ -37,7 +41,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="为您推荐的健身计划是："></TextView>
+                android:layout_marginBottom="5dp"
+                android:text="为您推荐的健身计划是："
+                android:textSize="20dp"
+                android:textStyle="bold"></TextView>
         </LinearLayout>
 
         <LinearLayout
@@ -48,7 +55,9 @@
                 android:id="@+id/plan_plan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="xxx"></TextView>
+                android:text="xxx"
+                android:textSize="16dp"
+                android:textStyle="bold"></TextView>
         </LinearLayout>
 
 

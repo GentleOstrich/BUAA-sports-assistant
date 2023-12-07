@@ -12,7 +12,7 @@
     <solid android:color="@color/snow"  ></solid>
     <!-- 外边框线的粗细及其颜色 -->
     <stroke
-        android:width="10px"
+        android:width="20px"
         android:color="@color/gray" >
     </stroke>
 
