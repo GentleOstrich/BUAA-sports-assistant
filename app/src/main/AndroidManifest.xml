@@ -22,6 +22,10 @@
             android:name=".PlanActivity"
             android:exported="false" />
         <activity
+            android:name=".CaloriesActivity"
+            android:exported="false"
+            android:label="食物卡路里"/>
+        <activity
             android:name=".RecommendActivity"
             android:exported="false"
             android:label="推荐" />
