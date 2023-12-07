@@ -52,4 +52,15 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.squareup.okhttp3:okhttp:3.12.12")
     implementation("com.google.code.gson:gson:2.6.2")
+    //map
+    implementation(fileTree("libs"))
+    implementation("androidx.appcompat:appcompat:1.2.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
+    testImplementation("junit:junit:4.12")
+    androidTestImplementation("androidx.test.ext:junit:1.1.2")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
+    //动态权限请求
+//    implementation("com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar")
+    implementation("io.reactivex.rxjava2:rxandroid:2.0.2")
+    implementation("io.reactivex.rxjava2:rxjava:2.0.0")
 }

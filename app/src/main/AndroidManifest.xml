@@ -110,6 +110,20 @@
             android:name=".ui.strategy.StrategyCreate"
             android:exported="false"
             android:label="发布攻略" />
+        <activity
+            android:name=".map.BaseMapActivity"
+            android:exported="false"
+            android:label="地图" />
+        <activity
+            android:name=".map.CityWalkActivity"
+            android:exported="false"
+            android:label="地图" />
+        <meta-data
+            android:name="TencentMapSDK"
+            android:value="I2VBZ-QMALL-HDOPP-EJ27F-RGCAK-YDFHC" />
+        <service
+            android:name="com.tencent.map.geolocation.s"
+            android:foregroundServiceType="location" />
     </application>
 
 </manifest>

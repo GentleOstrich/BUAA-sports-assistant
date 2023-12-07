@@ -19,6 +19,8 @@ import com.example.myapplication.PlanActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.RecommendActivity;
 import com.example.myapplication.databinding.FragmentHomeBinding;
+import com.example.myapplication.map.BaseMapActivity;
+import com.example.myapplication.map.CityWalkActivity;
 import com.example.myapplication.ui.sport.BadmintonActivity;
 import com.example.myapplication.ui.sport.BasketballActivity;
 import com.example.myapplication.ui.sport.FootballActivity;
@@ -65,6 +67,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         root.findViewById(R.id.btn_td).setOnClickListener(this);
         root.findViewById(R.id.btn_more).setOnClickListener(this);
         root.findViewById(R.id.recommend).setOnClickListener(this);
+        root.findViewById(R.id.btn_city_walk).setOnClickListener(this);
         root.findViewById(R.id.calories).setOnClickListener(this);
         root.findViewById(R.id.plan).setOnClickListener(this);
         return root;
@@ -103,6 +106,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             intent = new Intent(this.getContext(), PlanActivity.class);
         } else if (view.getId() == R.id.calories) {
             intent = new Intent(this.getContext(), CaloriesActivity.class);
+        } else if (view.getId() == R.id.btn_city_walk) {
+            intent = new Intent(this.getContext(), CityWalkActivity.class);
         }
         startActivity(intent);
     }

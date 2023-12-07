@@ -167,6 +167,7 @@
                     android:layout_height="200dp">
 
                     <ImageButton
+                        android:id="@+id/btn_city_walk"
                         android:layout_width="200dp"
                         android:layout_height="200dp"
                         android:layout_weight="1"
