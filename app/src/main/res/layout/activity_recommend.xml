@@ -6,11 +6,89 @@
     android:layout_height="match_parent"
     tools:context=".RecommendActivity">
 
-    <TextView
-        android:id="@+id/recommend_weather"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:text="天气"
-        tools:ignore="MissingConstraints"></TextView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="今日天气"></TextView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:text="天气"
+                tools:ignore="MissingConstraints"></TextView>
+
+            <TextView
+                android:id="@+id/recommend_weather"
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:text=""
+                tools:ignore="MissingConstraints"></TextView>
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:text="温度"
+                tools:ignore="MissingConstraints"></TextView>
+
+            <TextView
+                android:id="@+id/recommend_wendu"
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:text=""
+                tools:ignore="MissingConstraints"></TextView>
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:text="风力"
+                tools:ignore="MissingConstraints"></TextView>
+
+            <TextView
+                android:id="@+id/recommend_fengli"
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:text=""
+                tools:ignore="MissingConstraints"></TextView>
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:text="风向"
+                tools:ignore="MissingConstraints"></TextView>
+
+            <TextView
+                android:id="@+id/recommend_fengxiang"
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:text=""
+                tools:ignore="MissingConstraints"></TextView>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="推荐您做的运动为："></TextView>
+
+        <TextView
+            android:id="@+id/recommend_sport"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text=""></TextView>
+
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
