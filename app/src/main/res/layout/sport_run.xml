@@ -9,9 +9,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.6"
+        android:alpha="1"
         android:scaleType="centerCrop"
-        android:src="@mipmap/img5"></ImageView>
+        android:src="@mipmap/img10"></ImageView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -59,7 +59,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="30sp"
-            android:alpha="0.5"
             android:text="跑步时间"
             android:textColor="@color/gray"
             android:textSize="20sp"
@@ -98,9 +97,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="2sp"
+                android:alpha="0.5"
                 android:background="@drawable/round_corners_bg"
-                android:text="启动!"
-                android:alpha="0.5"/>
+                android:text="启动!" />
 
             <Button
                 android:id="@+id/btn_stop"
@@ -108,9 +107,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="2sp"
+                android:alpha="0.5"
                 android:background="@drawable/round_corners_bg"
-                android:text="结束"
-                android:alpha="0.5"/>
+                android:text="结束" />
 
             <Button
                 android:id="@+id/btn_reset"
@@ -118,9 +117,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="2sp"
+                android:alpha="0.5"
                 android:background="@drawable/round_corners_bg"
-                android:text="重置"
-                android:alpha="0.5"/>
+                android:text="重置" />
 
         </LinearLayout>
 
@@ -130,13 +129,13 @@
             android:layout_height="35sp"
             android:layout_gravity="center"
             android:layout_marginTop="90sp"
+            android:alpha="0.5"
             android:background="@drawable/round_corners_bg"
             android:text="提交"
             android:textAllCaps="false"
             android:textColor="@color/gray"
             android:textSize="17sp"
-            android:textStyle="bold"
-            android:alpha="0.5"/> <!-- 按钮后续可以加圆角样式 -->
+            android:textStyle="bold" /> <!-- 按钮后续可以加圆角样式 -->
 
 
     </LinearLayout>

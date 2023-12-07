@@ -1,56 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="30sp"
-        android:text="消耗卡路里(cal)："
-        android:textColor="@color/gray"
-        android:textSize="20sp"></TextView>
+        android:layout_height="match_parent"
+        android:alpha="1"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/img10"></ImageView>
 
-    <EditText
-        android:id="@+id/cal_swim"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60sp"
-        android:layout_marginBottom="50sp"
-        android:background="@drawable/round_corners_bg"
-        android:hint="请输入消耗卡路里："
-        android:inputType="number"
-        android:textColorHint="#95A1AA"></EditText>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30sp"
-        android:text="运动时间"
-        android:textColor="@color/gray"
-        android:textSize="20sp"></TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30sp"
+            android:text="消耗卡路里(cal)："
+            android:textColor="@color/gray"
+            android:textSize="20sp"
+            android:textStyle="bold"></TextView>
 
-    <EditText
-        android:id="@+id/time_swim"
-        android:layout_width="match_parent"
-        android:layout_height="60sp"
-        android:layout_marginBottom="50sp"
-        android:background="@drawable/round_corners_bg"
-        android:hint="请输入运动时间"
-        android:inputType="time"
-        android:textColorHint="#95A1AA"></EditText>
+        <EditText
+            android:id="@+id/cal_swim"
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:layout_marginBottom="50sp"
+            android:alpha="0.5"
+            android:background="@drawable/round_corners_bg"
+            android:hint="请输入消耗卡路里："
+            android:inputType="number"
+            android:textColorHint="#95A1AA"></EditText>
 
-    <Button
-        android:id="@+id/btn_swim"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="150sp"
-        android:background="@drawable/round_corners_bg"
-        android:text="提交"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textColorHighlight="@color/gray"
-        android:textSize="17sp" /> <!-- 按钮后续可以加圆角样式 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30sp"
+            android:text="运动时间"
+            android:textColor="@color/gray"
+            android:textSize="20sp"
+            android:textStyle="bold"></TextView>
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/time_swim"
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:layout_marginBottom="50sp"
+            android:alpha="0.5"
+            android:background="@drawable/round_corners_bg"
+            android:hint="请输入运动时间"
+            android:inputType="time"
+            android:textColorHint="#95A1AA"></EditText>
+
+        <Button
+            android:id="@+id/btn_swim"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="150sp"
+            android:alpha="0.5"
+            android:background="@drawable/round_corners_bg"
+            android:text="提交"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/gray"
+            android:textSize="17sp" /> <!-- 按钮后续可以加圆角样式 -->
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
