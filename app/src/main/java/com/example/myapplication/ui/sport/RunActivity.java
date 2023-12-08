@@ -60,7 +60,6 @@ public class RunActivity extends AppCompatActivity implements View.OnClickListen
 
         mdbHelper = MdbHelper.getInstance(this); // 获得用户数据库帮助器的实例
 
-//        findViewById(R.id.btn_commit).setOnClickListener(this);
         initChronometer();
     }
 

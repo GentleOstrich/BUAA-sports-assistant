@@ -49,24 +49,16 @@ public class TeamInfoActivity extends AppCompatActivity implements View.OnClickL
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_back);
-
         sport_type = findViewById(R.id.team_info_type);
         int teamId = getIntent().getIntExtra("data", -1);
         if (teamId != -1) {
             sport_type.setText(new TeamDao(this).queryById(teamId).getSport());
         }
-
         btn_join = findViewById(R.id.team_info_join_btn);
-
         btn_join.setOnClickListener(this);
-
-
-        team_member_list = findViewById(R.id.team_member_list);
-
         arrayAdapter = new ListViewAdapterWithViewHolder(this, getMemberList());
-
+        team_member_list = findViewById(R.id.team_member_list);
         team_member_list.setAdapter(arrayAdapter);
-
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {

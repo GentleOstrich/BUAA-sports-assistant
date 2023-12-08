@@ -32,8 +32,6 @@ public class PlanActivity extends AppCompatActivity {
 
         // 将日历中的星期几转换为字符串
         getDayOfWeekString(dayOfWeek);
-
-
     }
 
     private void getDayOfWeekString(int dayOfWeek) {

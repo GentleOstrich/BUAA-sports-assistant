@@ -102,8 +102,6 @@ public class RecommendActivity extends AppCompatActivity {
             }
 
             @Override
-
-
             public void onSuccess(WeatherNowBean weatherBean) {
                 //Log.i(TAG, "getWeather onSuccess: " + new Gson().toJson(weatherBean));
                 System.out.println("获取天气成功： " + new Gson().toJson(weatherBean));
@@ -207,7 +205,5 @@ public class RecommendActivity extends AppCompatActivity {
                 sport.setText("室内运动，例如游泳");
             }
         }
-
     }
-
 }
