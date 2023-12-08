@@ -79,10 +79,10 @@ public class CityWalkActivity extends AppCompatActivity implements View.OnClickL
         int bid = bids[idx];
         if (compoundButton.isChecked()) {
             RelativeLayout relativeLayout = findViewById(bid);
-            relativeLayout.setBackgroundColor(Color.GREEN);
+            relativeLayout.setBackgroundColor(Color.parseColor("#00CED1"));
         } else {
             RelativeLayout relativeLayout = findViewById(bid);
-            relativeLayout.setBackgroundColor(Color.WHITE);
+            relativeLayout.setBackgroundColor(Color.parseColor("#f5f5f5"));
         }
 //        String desc = String.format("您%s这个checkBox",b ? "勾选":"取消勾选");
 //        compoundButton.setText(desc);

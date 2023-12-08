@@ -69,7 +69,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/city"
+                            android:button="@drawable/pic1"
                             android:checked="false"></CheckBox>
 
                         <TextView
@@ -101,7 +101,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/pic0"
+                            android:button="@drawable/pic2"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -125,7 +125,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/city"
+                            android:button="@drawable/pic3"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -154,7 +154,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/pic0"
+                            android:button="@drawable/pic4"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -178,7 +178,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/city"
+                            android:button="@drawable/pic5"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -207,7 +207,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/pic0"
+                            android:button="@drawable/pic6"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -231,7 +231,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/city"
+                            android:button="@drawable/pic7"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -260,7 +260,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/pic0"
+                            android:button="@drawable/pic8"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -284,7 +284,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/city"
+                            android:button="@drawable/pic9"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -313,7 +313,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/pic0"
+                            android:button="@drawable/pic10"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -337,7 +337,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/city"
+                            android:button="@drawable/pic11"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -366,7 +366,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/pic0"
+                            android:button="@drawable/pic12"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -390,7 +390,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/city"
+                            android:button="@drawable/pic13"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -419,7 +419,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/pic0"
+                            android:button="@drawable/pic14"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -443,7 +443,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/city"
+                            android:button="@drawable/pic15"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -472,7 +472,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/pic0"
+                            android:button="@drawable/pic16"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -496,7 +496,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/city"
+                            android:button="@drawable/pic17"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -525,7 +525,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/pic0"
+                            android:button="@drawable/pic18"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -549,7 +549,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/city"
+                            android:button="@drawable/pic19"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -578,7 +578,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/pic0"
+                            android:button="@drawable/pic20"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -602,7 +602,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/city"
+                            android:button="@drawable/pic21"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -631,7 +631,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/pic0"
+                            android:button="@drawable/pic22"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -655,7 +655,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/city"
+                            android:button="@drawable/pic23"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -684,7 +684,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/pic0"
+                            android:button="@drawable/pic24"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -708,7 +708,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/city"
+                            android:button="@drawable/pic25"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -737,7 +737,7 @@
                             android:layout_weight="1"
                             android:background="@color/black"
                             android:layout_centerHorizontal="true"
-                            android:button="@drawable/pic0"
+                            android:button="@drawable/pic26"
                             android:checked="false"></CheckBox>
                         <TextView
                             android:layout_width="wrap_content"
@@ -776,7 +776,7 @@
         tools:ignore="MissingConstraints">
         <Button
             android:id="@+id/btn_commit"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_centerHorizontal="true"
