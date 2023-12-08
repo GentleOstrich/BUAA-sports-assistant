@@ -374,7 +374,7 @@
                             android:layout_below="@id/checkbox_12"
                             android:layout_marginTop="-6dp"
                             android:layout_centerHorizontal="true"
-                            android:text="安亲王府、法国使馆旧址" />
+                            android:text="法国使馆旧址" />
                     </RelativeLayout>
                     <RelativeLayout
                         android:id="@+id/checkbox_back_13"

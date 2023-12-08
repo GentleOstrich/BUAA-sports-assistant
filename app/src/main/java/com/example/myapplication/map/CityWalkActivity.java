@@ -108,13 +108,24 @@ public class CityWalkActivity extends AppCompatActivity implements View.OnClickL
             int idx = 0;
             for (int id : ids) {
                 CheckBox checkBox = findViewById(id);
+                BaseMapActivity.ables.add((checkBox.isChecked() ? true : false));
                 if (i == -1) {
                     if (checkBox.isChecked()) {
                         i = check(idx);
                     }
+                } else if (i == 0) {
+                    if (checkBox.isChecked()) {
+                        if (check(idx) == 1) {
+                            i = check(idx);
+                        } else if (i != check(idx)) {
+                            Toast.makeText(this, "地点相距过远，无适合的walk路线！", Toast.LENGTH_SHORT).show();
+                            i = -1;
+                            break;
+                        }
+                    }
                 } else {
                     if (checkBox.isChecked() && i != check(idx)) {
-                        Toast.makeText(this, "地点相距过远，无适合的路线！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "地点相距过远，无适合的walk路线！", Toast.LENGTH_SHORT).show();
                         i = -1;
                         break;
                     }

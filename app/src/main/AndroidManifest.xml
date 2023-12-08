@@ -113,11 +113,11 @@
         <activity
             android:name=".map.BaseMapActivity"
             android:exported="false"
-            android:label="地图" />
+            android:label="City walk" />
         <activity
             android:name=".map.CityWalkActivity"
             android:exported="false"
-            android:label="地图" />
+            android:label="City walk路线规划" />
         <meta-data
             android:name="TencentMapSDK"
             android:value="I2VBZ-QMALL-HDOPP-EJ27F-RGCAK-YDFHC" />

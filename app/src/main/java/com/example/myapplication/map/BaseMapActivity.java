@@ -43,6 +43,8 @@ import com.tencent.lbssearch.object.param.DrivingParam;
 import com.tencent.lbssearch.httpresponse.HttpResponseListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 //import com.tencent.lbssearch.object.result.DrivingResult;
 
@@ -71,6 +73,7 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
     private int[] ids = {R.id.checkbox_0, R.id.checkbox_1};
     private int[] bids = {R.id.checkbox_back_0, R.id.checkbox_back_1};
     protected static int iii;
+    protected static ArrayList<Boolean> ables = new ArrayList<>();
 
     LatLng latlng0 = new LatLng(39.981370491320185,116.35171651840211); //北航新主楼
     LatLng latlng1 = new LatLng(39.981399264839105,116.35070800781251); //北航博物馆
@@ -78,9 +81,12 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
     LatLng latlng3 = new LatLng(39.983257186409034,116.34615898132326); //北航绿园
     LatLng latlng4 = new LatLng(39.98320786171047,116.34791851043703); //北航绿园池塘
     LatLng latlng5 = new LatLng(39.983298290297334,116.34878754615785); //北航图书馆
-    LatLng latlng6 = new LatLng(39.98332295261845,116.35138392448427); //中间点
+    LatLng latlng6 = new LatLng(39.98334144935341,116.35185062885286); //中间点
     LatLng latlng7 = new LatLng(39.984087480157,116.35180234909059); //北航静园与老主楼
-    LatLng latlng8 = new LatLng(39.90102668602277,116.39967441558838); //天安门广场
+    LatLng latlng80 = new LatLng(39.904084310153955,116.39768689870836); //天安门广场
+    LatLng latlng81 = new LatLng(39.9041131161928,116.39920502901079); //天安门广场
+    LatLng latlng82 = new LatLng(39.9010143400229,116.39930158853532); //天安门广场
+    LatLng latlng83 = new LatLng(39.90102668602277,116.39967441558838); //天安门广场
     LatLng latlng9 = new LatLng(39.90201435880345,116.39963150024415); //东交民巷
     LatLng latlng10 = new LatLng(39.90247115264972,116.40726506710054); //中国法院博物馆
     LatLng latlng11 = new LatLng(39.902557572764536,116.40836477279663); //日本公使馆旧址
@@ -101,10 +107,19 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
     LatLng latlng26 = new LatLng(39.90490733506487,116.36586785316469); //李大钊故居
 
     ArrayList<List<LatLng>> latLngs = new ArrayList<>();
+    ArrayList<LatLng> allatLngs = new ArrayList<>();
+    String[] strs = new String[]{
+            "北航新主楼", "北航博物馆", "北航田径场", "北航绿园", "北航绿园池塘", "北航图书馆", "北航静园", "北航老主楼", "天安门广场", "东交民巷", "中国法院博物馆", "日本公使馆旧址", "法国使馆旧址", "比利时使馆旧址", "意大利使馆旧址", "王府井大街", "清学部遗址", "参政胡同", "参政胡同中", "东铁匠胡同", "参政西巷", "察院胡同", "察院胡同中", "文昌胡同", "文昌胡同中", "文华胡同", "李大钊故居"
+    };
+    int[] pids = {R.drawable.pic0, R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5, R.drawable.pic6, R.drawable.pic7, R.drawable.pic8, R.drawable.pic9, R.drawable.pic10, R.drawable.pic11, R.drawable.pic12, R.drawable.pic13, R.drawable.pic14, R.drawable.pic15, R.drawable.pic16, R.drawable.pic17, R.drawable.pic18, R.drawable.pic19, R.drawable.pic20, R.drawable.pic21, R.drawable.pic22, R.drawable.pic23, R.drawable.pic24, R.drawable.pic25, R.drawable.pic26};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_map);
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setDisplayHomeAsUpEnabled(true);
+//        actionBar.setHomeAsUpIndicator(R.drawable.ic_back); //修改actionbar左上角返回按钮的图标
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_back); //修改actionbar左上角返回按钮的图标
@@ -118,16 +133,16 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
         doit();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:   //返回键的id
-                this.finish();
-                return false;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case android.R.id.home:   //返回键的id
+//                this.finish();
+//                return false;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
 
     private void makeMarkInfo(int i) {
         MarkerOptions markerOptions = new MarkerOptions();
@@ -141,57 +156,101 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
         marker.setClickable(true);
     }
 
-    private List<LatLng> makeMarkers() {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:   //返回键的id
+                this.finish();
+                return false;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
-        MarkerOptions markerOptions = new MarkerOptions();
-        //设置标记的位置
-        markerOptions.position(latlng0);
-        markerOptions.title("北航新主楼");
-        //设置标记的可见性，true表示显示，false表示隐藏
-        markerOptions.visible(true);
-        //在地图上添加标记，返回一个标记对象
-        Marker marker = tencentMap.addMarker(markerOptions);
-        marker.setClickable(true);
-//        tencentMap.setOnMarkerClickListener(new TencentMap.OnMarkerClickListener() {
-//            @Override
-//            public boolean onMarkerClick(Marker marker) {
-//                //将信息显示在界面上
-//                ImageView iv_img = findViewById(R.id.iv_img);
-//                iv_img.setBackgroundResource(R.drawable.buaa_lib);
-//                TextView tv_name = findViewById(R.id.tv_name);
-//                tv_name.setText("infoUtil.getName()");
+    private List<LatLng> makeMarkers() {
+        ArrayList<String> strings = new ArrayList<>();
+        Collections.addAll(strings, strs);
+
+        allatLngs.add(latlng0);
+        allatLngs.add(latlng1);
+        allatLngs.add(latlng2);
+        allatLngs.add(latlng3);
+        allatLngs.add(latlng4);
+        allatLngs.add(latlng5);
+        allatLngs.add(latlng6);
+        allatLngs.add(latlng7);
+        allatLngs.add(latlng80);
+        allatLngs.add(latlng9);
+        allatLngs.add(latlng10);
+        allatLngs.add(latlng11);
+        allatLngs.add(latlng12);
+        allatLngs.add(latlng13);
+        allatLngs.add(latlng14);
+        allatLngs.add(latlng15);
+        allatLngs.add(latlng16);
+        allatLngs.add(latlng17);
+        allatLngs.add(latlng18);
+        allatLngs.add(latlng19);
+        allatLngs.add(latlng20);
+        allatLngs.add(latlng21);
+        allatLngs.add(latlng22);
+        allatLngs.add(latlng23);
+        allatLngs.add(latlng24);
+        allatLngs.add(latlng25);
+        allatLngs.add(latlng26);
+
+        for (int i = 0; i < 27; i++) {
+            MarkerOptions markerOptions = new MarkerOptions();
+            //设置标记的位置
+            markerOptions.position(allatLngs.get(i));
+            markerOptions.title(strs[i]);
+            //设置标记的可见性，true表示显示，false表示隐藏
+            markerOptions.visible(ables.get(i));
+            //在地图上添加标记，返回一个标记对象
+            Marker marker = tencentMap.addMarker(markerOptions);
+            marker.setClickable(true);
+            tencentMap.setOnMarkerClickListener(new TencentMap.OnMarkerClickListener() {
+                @Override
+                public boolean onMarkerClick(Marker marker) {
+                    String title = marker.getTitle();
+                    int idx = strings.indexOf(title);
+                    //将信息显示在界面上
+                    ImageView iv_img = findViewById(R.id.iv_img);
+                    iv_img.setBackgroundResource(pids[idx]);
+                    TextView tv_name = findViewById(R.id.tv_name);
+                    tv_name.setText(strs[idx]);
 //                TextView tv_description = findViewById(R.id.tv_description);
 //                tv_description.setText("infoUtil.getDescription()");
-//                //将布局显示出来
-//                RelativeLayout relativeLayout = findViewById(R.id.rl_marker);
-//                relativeLayout.setVisibility(View.VISIBLE);
-//                return true;
-//            }
-//        });
-        //地图点击事件
-//        mBaiduMap.setOnMapClickListener(new OnMapClickListener() {
-//            @Override
-//            public boolean onMapPoiClick(MapPoi arg0) {
-//                return false;
-//            }
-//            @Override
-//            public void onMapClick(LatLng arg0) {
-//                rl_marker.setVisibility(View.GONE);
-//            }
-//        });
+                    //将布局显示出来
+                    RelativeLayout relativeLayout = findViewById(R.id.rl_marker);
+                    relativeLayout.setVisibility(View.VISIBLE);
+                    return true;
+                }
+            });
+
+        }
+
+        tencentMap.setOnMapClickListener(new TencentMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng arg0) {
+                RelativeLayout relativeLayout = findViewById(R.id.rl_marker);
+                relativeLayout.setVisibility(View.GONE);
+            }
+        });
         return null;
     }
 
     private void doit() {
-        MarkerOptions markerOptions = new MarkerOptions();
-        //设置标记的位置
-        markerOptions.position(latlng0);
-        markerOptions.title("北航新主楼");
-        //设置标记的可见性，true表示显示，false表示隐藏
-        markerOptions.visible(true);
-        //在地图上添加标记，返回一个标记对象
-        Marker marker = tencentMap.addMarker(markerOptions);
-        marker.setClickable(true);
+        makeMarkers();
+//        MarkerOptions markerOptions = new MarkerOptions();
+//        //设置标记的位置
+//        markerOptions.position(latlng0);
+//        markerOptions.title("北航新主楼");
+//        //设置标记的可见性，true表示显示，false表示隐藏
+//        markerOptions.visible(true);
+//        //在地图上添加标记，返回一个标记对象
+//        Marker marker = tencentMap.addMarker(markerOptions);
+//        marker.setClickable(true);
 //        tencentMap.setOnMarkerClickListener(new TencentMap.OnMarkerClickListener() {
 //            @Override
 //            public boolean onMarkerClick(Marker marker) {
@@ -230,6 +289,7 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
         List<LatLng> latLngs3 = new ArrayList<LatLng>();
         List<LatLng> latLngs4 = new ArrayList<LatLng>();
 
+        latLngs1.add(new LatLng(39.981462977587896, 116.35334730148317));
         latLngs1.add(latlng0);
         latLngs1.add(latlng1);
         latLngs1.add(latlng2);
@@ -239,13 +299,17 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
         latLngs1.add(latlng6);
         latLngs1.add(latlng7);
 
+        latLngs2.add(new LatLng(39.981462977587896, 116.35334730148317));
         latLngs2.add(latlng0);
         latLngs2.add(latlng1);
         latLngs2.add(latlng2);
         latLngs2.add(latlng3);
         latLngs2.add(latlng4);
 
-        latLngs3.add(latlng8);
+        latLngs3.add(latlng80);
+        latLngs3.add(latlng81);
+        latLngs3.add(latlng82);
+        latLngs3.add(latlng83);
         latLngs3.add(latlng9);
         latLngs3.add(latlng10);
         latLngs3.add(latlng11);
@@ -266,8 +330,8 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
         latLngs4.add(latlng25);
         latLngs4.add(latlng26);
 
-        latLngs.add(latLngs1);
         latLngs.add(latLngs2);
+        latLngs.add(latLngs1);
         latLngs.add(latLngs3);
         latLngs.add(latLngs4);
         // 构造 PolylineOpitons
