@@ -1,11 +1,13 @@
 package com.example.myapplication.map;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Looper;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -103,6 +105,10 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_map);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_back); //修改actionbar左上角返回按钮的图标
+
         //页面初始化
         initView();
 
@@ -110,6 +116,17 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
         initLocation();
 
         doit();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:   //返回键的id
+                this.finish();
+                return false;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void makeMarkInfo(int i) {
