@@ -109,6 +109,10 @@ public class CityWalkActivity extends AppCompatActivity implements View.OnClickL
             for (int id : ids) {
                 CheckBox checkBox = findViewById(id);
                 BaseMapActivity.ables.add((checkBox.isChecked() ? true : false));
+                if (checkBox.isChecked()) {
+                    BaseMapActivity.mini = (BaseMapActivity.mini < idx) ? BaseMapActivity.mini : idx;
+                    BaseMapActivity.maxi = (BaseMapActivity.maxi > idx) ? BaseMapActivity.maxi : idx;
+                }
                 if (i == -1) {
                     if (checkBox.isChecked()) {
                         i = check(idx);
@@ -134,6 +138,13 @@ public class CityWalkActivity extends AppCompatActivity implements View.OnClickL
             }
             if (i != -1) {
                 BaseMapActivity.iii = i;
+                if (BaseMapActivity.mini >= 9) {
+                    BaseMapActivity.mini += 3;
+                }
+                if (BaseMapActivity.maxi >= 9) {
+                    BaseMapActivity.maxi += 3;
+                }
+//                BaseMapActivity.reNewMarkers();
                 startActivity(intent);
             }
         }

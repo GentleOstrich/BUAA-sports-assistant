@@ -72,13 +72,15 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
     private LocationSource.OnLocationChangedListener locationChangedListener;
     private int[] ids = {R.id.checkbox_0, R.id.checkbox_1};
     private int[] bids = {R.id.checkbox_back_0, R.id.checkbox_back_1};
-    protected static int iii;
+    protected static int iii = 3;
     protected static ArrayList<Boolean> ables = new ArrayList<>();
+    protected static int mini = 30;
+    protected static int maxi = 0;
 
     LatLng latlng0 = new LatLng(39.981370491320185,116.35171651840211); //北航新主楼
     LatLng latlng1 = new LatLng(39.981399264839105,116.35070800781251); //北航博物馆
-    LatLng latlng2 = new LatLng(39.9812595076337,116.34603023529054); //北航田径场
-    LatLng latlng3 = new LatLng(39.983257186409034,116.34615898132326); //北航绿园
+    LatLng latlng2 = new LatLng(39.981236899823635,116.34618848562242); //北航田径场
+    LatLng latlng3 = new LatLng(39.98316059217425,116.34608119726182); //北航绿园
     LatLng latlng4 = new LatLng(39.98320786171047,116.34791851043703); //北航绿园池塘
     LatLng latlng5 = new LatLng(39.983298290297334,116.34878754615785); //北航图书馆
     LatLng latlng6 = new LatLng(39.98334144935341,116.35185062885286); //中间点
@@ -107,6 +109,8 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
     LatLng latlng26 = new LatLng(39.90490733506487,116.36586785316469); //李大钊故居
 
     ArrayList<List<LatLng>> latLngs = new ArrayList<>();
+    ArrayList<LatLng> curlatLngs = new ArrayList<>();
+    ArrayList<LatLng> mlatLngs = new ArrayList<>();
     ArrayList<LatLng> allatLngs = new ArrayList<>();
     String[] strs = new String[]{
             "北航新主楼", "北航博物馆", "北航田径场", "北航绿园", "北航绿园池塘", "北航图书馆", "北航静园", "北航老主楼", "天安门广场", "东交民巷", "中国法院博物馆", "日本公使馆旧址", "法国使馆旧址", "比利时使馆旧址", "意大利使馆旧址", "王府井大街", "清学部遗址", "参政胡同", "参政胡同中", "东铁匠胡同", "参政西巷", "察院胡同", "察院胡同中", "文昌胡同", "文昌胡同中", "文华胡同", "李大钊故居"
@@ -160,6 +164,10 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:   //返回键的id
+                ables.clear();
+                maxi = 0;
+                mini = 30;
+                iii = 3;
                 this.finish();
                 return false;
             default:
@@ -167,6 +175,7 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
         }
     }
 
+    private static ArrayList<Marker> markers = new ArrayList<>();
     private List<LatLng> makeMarkers() {
         ArrayList<String> strings = new ArrayList<>();
         Collections.addAll(strings, strs);
@@ -199,6 +208,37 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
         allatLngs.add(latlng25);
         allatLngs.add(latlng26);
 
+        mlatLngs.add(latlng0);
+        mlatLngs.add(latlng1);
+        mlatLngs.add(latlng2);
+        mlatLngs.add(latlng3);
+        mlatLngs.add(latlng4);
+        mlatLngs.add(latlng5);
+        mlatLngs.add(latlng6);
+        mlatLngs.add(latlng7);
+        mlatLngs.add(latlng80);
+        mlatLngs.add(latlng81);
+        mlatLngs.add(latlng82);
+        mlatLngs.add(latlng83);
+        mlatLngs.add(latlng9);
+        mlatLngs.add(latlng10);
+        mlatLngs.add(latlng11);
+        mlatLngs.add(latlng12);
+        mlatLngs.add(latlng13);
+        mlatLngs.add(latlng14);
+        mlatLngs.add(latlng15);
+        mlatLngs.add(latlng16);
+        mlatLngs.add(latlng17);
+        mlatLngs.add(latlng18);
+        mlatLngs.add(latlng19);
+        mlatLngs.add(latlng20);
+        mlatLngs.add(latlng21);
+        mlatLngs.add(latlng22);
+        mlatLngs.add(latlng23);
+        mlatLngs.add(latlng24);
+        mlatLngs.add(latlng25);
+        mlatLngs.add(latlng26);
+
         for (int i = 0; i < 27; i++) {
             MarkerOptions markerOptions = new MarkerOptions();
             //设置标记的位置
@@ -209,6 +249,7 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
             //在地图上添加标记，返回一个标记对象
             Marker marker = tencentMap.addMarker(markerOptions);
             marker.setClickable(true);
+            markers.add(marker);
             tencentMap.setOnMarkerClickListener(new TencentMap.OnMarkerClickListener() {
                 @Override
                 public boolean onMarkerClick(Marker marker) {
@@ -238,6 +279,13 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
             }
         });
         return null;
+    }
+
+    public static void reNewMarkers() {
+        for (int i = 0; i < 27; i++) {
+            Marker marker = markers.get(i);
+//            marker.setVisible(ables.get(i));
+        }
     }
 
     private void doit() {
@@ -284,59 +332,67 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
 //            }
 //        });
         // 构造折线点串
-        List<LatLng> latLngs1 = new ArrayList<LatLng>();
-        List<LatLng> latLngs2 = new ArrayList<LatLng>();
-        List<LatLng> latLngs3 = new ArrayList<LatLng>();
-        List<LatLng> latLngs4 = new ArrayList<LatLng>();
+        curlatLngs.clear();
+//        if ((iii == 0 || iii == 1) && mini == 0) {
+//            curlatLngs.add(new LatLng(39.981462977587896, 116.35334730148317));
+//        }
+        for (int i = mini; i <= maxi; i++) {
+            curlatLngs.add(mlatLngs.get(i));
+        }
+//        List<LatLng> latLngs1 = new ArrayList<LatLng>();
+//        List<LatLng> latLngs2 = new ArrayList<LatLng>();
+//        List<LatLng> latLngs3 = new ArrayList<LatLng>();
+//        List<LatLng> latLngs4 = new ArrayList<LatLng>();
+//
+//        latLngs1.add(new LatLng(39.981462977587896, 116.35334730148317));
+//        latLngs1.add(latlng0);
+//        latLngs1.add(latlng1);
+//        latLngs1.add(latlng2);
+//        latLngs1.add(latlng3);
+//        latLngs1.add(latlng4);
+//        latLngs1.add(latlng5);
+//        latLngs1.add(latlng6);
+//        latLngs1.add(latlng7);
+//
+//        latLngs2.add(new LatLng(39.981462977587896, 116.35334730148317));
+//        latLngs2.add(latlng0);
+//        latLngs2.add(latlng1);
+//        latLngs2.add(latlng2);
+//        latLngs2.add(latlng3);
+//        latLngs2.add(latlng4);
+//
+//        latLngs3.add(latlng80);
+//        latLngs3.add(latlng81);
+//        latLngs3.add(latlng82);
+//        latLngs3.add(latlng83);
+//        latLngs3.add(latlng9);
+//        latLngs3.add(latlng10);
+//        latLngs3.add(latlng11);
+//        latLngs3.add(latlng12);
+//        latLngs3.add(latlng13);
+//        latLngs3.add(latlng14);
+//        latLngs3.add(latlng15);
+//
+//        latLngs4.add(latlng16);
+//        latLngs4.add(latlng17);
+//        latLngs4.add(latlng18);
+//        latLngs4.add(latlng19);
+//        latLngs4.add(latlng20);
+//        latLngs4.add(latlng21);
+//        latLngs4.add(latlng22);
+//        latLngs4.add(latlng23);
+//        latLngs4.add(latlng24);
+//        latLngs4.add(latlng25);
+//        latLngs4.add(latlng26);
+//
+//        latLngs.add(latLngs2);
+//        latLngs.add(latLngs1);
+//        latLngs.add(latLngs3);
+//        latLngs.add(latLngs4);
 
-        latLngs1.add(new LatLng(39.981462977587896, 116.35334730148317));
-        latLngs1.add(latlng0);
-        latLngs1.add(latlng1);
-        latLngs1.add(latlng2);
-        latLngs1.add(latlng3);
-        latLngs1.add(latlng4);
-        latLngs1.add(latlng5);
-        latLngs1.add(latlng6);
-        latLngs1.add(latlng7);
-
-        latLngs2.add(new LatLng(39.981462977587896, 116.35334730148317));
-        latLngs2.add(latlng0);
-        latLngs2.add(latlng1);
-        latLngs2.add(latlng2);
-        latLngs2.add(latlng3);
-        latLngs2.add(latlng4);
-
-        latLngs3.add(latlng80);
-        latLngs3.add(latlng81);
-        latLngs3.add(latlng82);
-        latLngs3.add(latlng83);
-        latLngs3.add(latlng9);
-        latLngs3.add(latlng10);
-        latLngs3.add(latlng11);
-        latLngs3.add(latlng12);
-        latLngs3.add(latlng13);
-        latLngs3.add(latlng14);
-        latLngs3.add(latlng15);
-
-        latLngs4.add(latlng16);
-        latLngs4.add(latlng17);
-        latLngs4.add(latlng18);
-        latLngs4.add(latlng19);
-        latLngs4.add(latlng20);
-        latLngs4.add(latlng21);
-        latLngs4.add(latlng22);
-        latLngs4.add(latlng23);
-        latLngs4.add(latlng24);
-        latLngs4.add(latlng25);
-        latLngs4.add(latlng26);
-
-        latLngs.add(latLngs2);
-        latLngs.add(latLngs1);
-        latLngs.add(latLngs3);
-        latLngs.add(latLngs4);
         // 构造 PolylineOpitons
         PolylineOptions polylineOptions = new PolylineOptions()
-                .addAll(latLngs.get(iii))
+                .addAll(curlatLngs)
                 // 折线设置圆形线头
                 .lineCap(true)
                 // 折线的颜色为绿色
@@ -353,7 +409,7 @@ public class BaseMapActivity extends AppCompatActivity implements LocationSource
 
         // 将地图视野移动到折线所在区域(指定西南坐标和东北坐标)，设置四周填充的像素
         tencentMap.moveCamera(CameraUpdateFactory.newLatLngBounds(
-                new LatLngBounds.Builder().include(latLngs.get(iii)).build(),
+                new LatLngBounds.Builder().include(curlatLngs).build(),
                 100));
     }
 
