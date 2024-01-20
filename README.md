@@ -1,10 +1,10 @@
-# BUAA-Sports-Assistant
+# BUAA-sports-assistant
 
 BUAA-2023-spring-Android Platform Application Development
 
-Project: Beihang Sports Assistant
+Project: BUAA sports assistant
 
-A BUAA Sports Assistant, which includes the following features:
+A sports assistant for BUAAers, which includes the following features:
 
 *   Activity tracking: Track your workouts and progress over time.
 *   Activity organizing: Find and join activities with other students.
